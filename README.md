@@ -1,2 +1,1 @@
-# Data-Base-Flaskblog-V1
-Data Base by using the Flaskblog framework taught by Corey Schafer
+# Sustainable_Energy_Web1
