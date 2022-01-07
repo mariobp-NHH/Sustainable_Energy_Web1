@@ -1,0 +1,170 @@
+{% extends "layout.html" %}
+{% block content %}
+    <!-- Showcase -->
+    <section class="bg-dark text-light p-5 p-lg-5 pt-lg-5 text-center text-sm-start">
+      <div class="container">
+          <div class="row">
+              <div class="col-6 col-md-4">
+
+                    <h1 class="text-center"><span class="text-warning"> Sustainable Energy </span> and <span class="text-warning"> App Development </span></h1>
+                    <p class="lead my-4">
+                      This course focuses on the study of sustainable energy and its relation with the Sustainable Development Goals.
+                    </p>
+                    <p class="lead my-4">
+                      By using some basic Flask, Python, CSS and HTML code, we develop a transport carbon emissions calculator app, and we study possible policies to reduce those emissions.
+                    </p>
+
+                   <div class="btn-group mr-2" role="group" aria-label="First group">
+                       <button type="button" class="btn btn-primary btn-lg mr-2" href="#">Register</button>
+                   </div>
+                   <div class="btn-group" role="group" aria-label="Second group">
+                    <button type="button" class="btn btn-primary btn-lg" href="#">Login</button>
+                   </div>
+              </div>
+              <div class="col-6 col-md-4">
+                  <div class="card-body text-center">
+                        <div class="h1 mb-3">
+                            <i class="bi bi-bell"></i>
+                        </div>
+                        <h3 class="text-center"><span class="text-warning"> Announcements: </span>
+                        </h3>
+                        <p class="card-text">
+                            ....
+                        </p>
+                  </div>
+              </div>
+              <div class="col-6 col-md-4">
+                  <div class="card-body text-center">
+                        <div class="h1 mb-3">
+                            <i class="bi bi-chat-left-dots"></i>
+                        </div>
+                        <h3 class="text-center"><span class="text-warning"> Posts: </span>
+                        </h3>
+                        <p class="card-text">
+                            ....
+                        </p>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="bg-primary text-light p-5">
+      <div class="container">
+        <div class="row text-center g-4">
+                <div class="col-md">
+                      <h3 class="mb-3 mb-md-0">Sign up for the newletter of the course</h3>
+                </div>
+                <div class="col-md">
+                    <form class="form-inline" action="/form" method="POST" class="form-inline">
+                          <div class="form-group mx-sm-3 mb-2">
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                    placeholder="Email Address" name='email'>
+                          </div>
+                          <button type="submit" class="btn btn-dark">Submit</button>
+                    </form>
+                </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Boxes -->
+    <section class="p-5">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3">
+                                <i class="bi bi-laptop"></i>
+                            </div>
+                            <h3 class="card-title mb-3">
+                                App Development
+                            </h3>
+                            <p class="card-text">
+                                In this part of the course, we develop a carbon emission calculator by using Flask, Python, HTML and CSS
+                            </p>
+                            <a href="{{ url_for('app_web') }}" class="btn btn-primary">App Web</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="card bg-secondary text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3">
+                                <i class="bi bi-brightness-alt-high"></i>
+                            </div>
+                            <h3 class="card-title mb-3">
+                                Sustainable Energy
+                            </h3>
+                            <p class="card-text">
+                                In this part of the course we cover the most salient topics in sustainable energy, and we connect those topics
+                                with the Sustainable Development Goals
+                            </p>
+                            <a href="{{ url_for('sustainable_energy_web') }}" class="btn btn-dark">Sustainable Energy Web</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Question Accordion -->
+    <section id="questions" class="p-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+        </div>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <!-- Item 1 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseOne"
+              >
+                Question 1:
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+              <div
+                      class="accordion-body">Answer 1.</div>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+              <button class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseTwo"
+              >
+                Question 2:
+              </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">Answer 2</div>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingThree">
+              <button class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseThree"
+              >
+                Question 3:
+              </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">Answer 3</div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+{% endblock content %}

@@ -1,0 +1,9 @@
+
+/* Alert calculator */
+.alert {
+background: green;
+padding: 1rem;
+border-radius: 5px;
+color: white;
+margin: 1rem;
+}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+		<h3>
+			Exercise 1
+		</h3>
+	</div>
+<!-- Form -->
+    <div class="container">
+      <form action="{{ url_for('app_web_module1_ex1') }}" method="POST">
+        <div class="form-group">
+                <label for="exampleInputEmail1">Number 1</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                       placeholder="First Number" name='num1'>
+        </div>
+        <br/>
+
+        <input type="submit" value="Check" id="calc_btn" />
+        <br />
+        <div class="alert">
+          {{ check }}
+        </div>
+
+        </form>
+    </div>
+{% endblock %}
