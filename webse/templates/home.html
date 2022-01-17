@@ -8,7 +8,7 @@
 
                     <h1 class="text-center"><span class="text-warning"> Sustainable Energy </span> and <span class="text-warning"> App Development </span></h1>
                     <p class="lead my-4">
-                      This course focuses on the study of sustainable energy and its relation with the Sustainable Development Goals.
+                    This course focuses on the study of sustainable energy and its relation with the Sustainable Development Goals.
                     </p>
                     <p class="lead my-4">
                       By using some basic Flask, Python, CSS and HTML code, we develop a transport carbon emissions calculator app, and we study possible policies to reduce those emissions.
@@ -28,9 +28,34 @@
                         </div>
                         <h3 class="text-center"><span class="text-warning"> Announcements: </span>
                         </h3>
-                        <p class="card-text">
-                            ....
-                        </p>
+                        {% for announcement in announcements.items %}
+                            <article class="media content-section">
+                              <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + announcement.author.image_file) }}">
+                              <div class="media-body">
+                                <div class="article-metadata">
+                                  <a class="mr-2" href="{{ url_for('user_announcements', username=announcement.author.username) }}">{{ announcement.author.username }}</a>
+                                  <small class="text-muted">{{ announcement.date_posted.strftime('%Y-%m-%d') }}</small>
+                                </div>
+                                <h4><a class="article-title" href="{{ url_for('announcement', announcement_id=announcement.id) }}">{{ announcement.title }}</a></h4>
+                                <p class="text-muted">{{ announcement.content }}</p>
+                              </div>
+                            </article>
+                        {% endfor %}
+                        {% if total_pages_announcements>=1 %}
+                            {% for page_num in announcements.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                              {% if page_num %}
+                                {% if announcements.page == page_num %}
+                                  <a class="btn btn-info mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+                                {% else %}
+                                  <a class="btn btn-outline-info mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+                                {% endif %}
+                              {% else %}
+                                ...
+                              {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            ...
+                        {% endif %}
                   </div>
               </div>
               <div class="col-6 col-md-4">
@@ -38,7 +63,7 @@
                         <div class="h1 mb-3">
                             <i class="bi bi-chat-left-dots"></i>
                         </div>
-                        <h3 class="text-center"><span class="text-warning"> Posts: </span>
+                        <h3 class="text-center"><span class="text-warning"> Chat - Posts: </span>
                         </h3>
                         {% for post in posts.items %}
                             <article class="media content-section">
@@ -48,8 +73,8 @@
                                   <a class="mr-2" href="{{ url_for('user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
                                   <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
                                 </div>
-                                <h2><a class="article-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
-                                <p class="article-content">{{ post.content }}</p>
+                                <h4><a class="article-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h4>
+                                <p class="text-muted">{{ post.content }}</p>
                               </div>
                             </article>
                         {% endfor %}
@@ -102,7 +127,7 @@
                                 <i class="bi bi-laptop"></i>
                             </div>
                             <h3 class="card-title mb-3">
-                                App Development
+                                App Development Module
                             </h3>
                             <p class="card-text">
                                 In this part of the course, we develop a carbon emission calculator by using Flask, Python, HTML and CSS
@@ -119,7 +144,7 @@
                                 <i class="bi bi-brightness-alt-high"></i>
                             </div>
                             <h3 class="card-title mb-3">
-                                Sustainable Energy
+                                Sustainable Energy Module
                             </h3>
                             <p class="card-text">
                                 In this part of the course we cover the most salient topics in sustainable energy, and we connect those topics

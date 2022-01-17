@@ -19,6 +19,9 @@
     />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
+    <!--For the plots-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
     {% if title %}
         <title>Sustainable Energy - {{ title }}</title>
     {% else %}
@@ -43,17 +46,67 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarText_left">
                 {% if current_user.is_authenticated %}
-                <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="{{ url_for('new_post') }}">New Post</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('account') }}">Account</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
-                  </li>
-                </ul>
+                    {% if current_user.email=='mblazquezdepaz@yahoo.es' %}
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('new_announcement') }}">Announcement</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('new_post') }}">Chat-Post</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('new_post_g') }}">Chat-Post-N</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('chat_post_w') }}">Chat-Post-W</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('account') }}">Account</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('statistics') }}">Statistics</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                      </li>
+                    </ul>
+                    {% elif current_user.group!=0 %}
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('new_post') }}">Chat-Post</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('new_post_g') }}">Chat-Post-N</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('chat_post_w') }}">Chat-Post-W</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('account') }}">Account</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('statistics') }}">Statistics</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                      </li>
+                    </ul>
+                    {% else %}
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('new_post') }}">Chat-Post</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('account') }}">Account</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('statistics') }}">Statistics</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                      </li>
+                    </ul>
+                    {% endif %}
                 {% else %}
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">

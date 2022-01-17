@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="container">
+</br>
+<div class="container" xmlns="http://www.w3.org/1999/html">
     <div class="content-section">
       <div class="media">
         <img class="rounded-circle account-img" src="{{ image_file }}">
@@ -41,6 +42,20 @@
                     {% endif %}
                 </div>
                 <div class="form-group">
+                    {{ form.group.label(class="form-control-label") }}
+                    {% if form.group.errors %}
+                        {{ form.group(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.group.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.group(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                </br>
+                <div class="form-group">
                     {{ form.picture.label() }}
                     {{ form.picture(class="form-control-file") }}
                     {% if form.picture.errors %}
@@ -50,19 +65,11 @@
                     {% endif %}
                 </div>
             </fieldset>
+            </br>
             <div class="form-group">
                 {{ form.submit(class="btn btn-outline-info") }}
             </div>
         </form>
     </div>
-    <article class="media content-section">
-      <div class="media-body">
-        <div class="article-metadata">
-          <a class="mr-2" href="#">{{ moduls.module1_q1_string }}</a>
-          <small class="text-muted">Hello</small>
-        </div>
-        <h2><a class="article-title" href="#">{{ moduls.module1_q1_string }}</a></h2>
-      </div>
-    </article>
 </div>
 {% endblock content %}
