@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 import os
+from sqlalchemy import create_engine
+import pandas as pd
 
 DB_VAR=os.environ.get('DATABASE_URL_POSTGRESQL', None)
 
@@ -17,5 +19,23 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 
+###Check online DB and test if tables are empty
+engine_local =create_engine(DB_VAR)
+       
+df_announcement=pd.read_sql("SELECT * FROM announcement",engine_local)
+test_announcement=df_announcement.shape[0]
+if test_announcement==0:
+    test_announcement=False
+else:
+    test_announcement=True 
+
+df_post=pd.read_sql("SELECT * FROM post",engine_local)
+test_post=df_post.shape[0]
+if test_post==0:
+    test_post=False
+else:
+    test_post=True
+    
+engine_local.dispose()   
 
 from webse import routes
