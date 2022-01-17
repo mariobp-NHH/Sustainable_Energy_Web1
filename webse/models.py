@@ -2,12 +2,15 @@ from datetime import datetime
 from webse import db, login_manager
 from flask_login import UserMixin
 
+
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
 
 class User(db.Model, UserMixin):
+    __tablename__= 'user'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
     group = db.Column(db.Integer, unique=False, nullable=True)
@@ -24,6 +27,7 @@ class User(db.Model, UserMixin):
 
 
 class Post(db.Model):
+    __tablename__= 'post'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
@@ -34,6 +38,7 @@ class Post(db.Model):
         return f"Post('{self.title}', '{self.date_posted}')"
 
 class PostG(db.Model):
+    __tablename__= 'postG'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
@@ -45,6 +50,7 @@ class PostG(db.Model):
         return f"PostG('{self.title}', '{self.date_posted}')"
 
 class Announcement(db.Model):
+    __tablename__= 'announcement'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
@@ -55,6 +61,7 @@ class Announcement(db.Model):
         return f"Announcement('{self.title}', '{self.date_posted}')"
 
 class Moduls(db.Model):
+    __tablename__= 'moduls'
     id = db.Column(db.Integer, primary_key=True)
     title_mo = db.Column(db.String(100), nullable=False)
     title_ch = db.Column(db.String(100), nullable=False)

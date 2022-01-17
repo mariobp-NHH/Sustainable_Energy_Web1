@@ -11,6 +11,9 @@ from webse.forms import ModulsForm_M2_Ch2_Q1, ModulsForm_M2_Ch2_Q2, ModulsForm_M
 from webse.models import User, Post, Moduls, Announcement, PostG
 from flask_login import login_user, current_user, logout_user, login_required
 
+@app.before_first_request
+def before_first_request():
+    db.create_all()
 
 @app.route('/home')
 @app.route('/')
