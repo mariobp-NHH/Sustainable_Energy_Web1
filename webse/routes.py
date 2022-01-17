@@ -48,20 +48,26 @@ def home():
         posts = Post.query.all()
         """
     
-    if test_announcement and test_post:
+    if test_announcement:
         if page<=min_pages:
             announcements = Announcement.query.order_by(Announcement.date_posted.desc()).paginate(page=page, per_page=1)
-            posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=2)
         elif page>min_pages and max_pages>=page>max_pages_posts:
             announcements = Announcement.query.order_by(Announcement.date_posted.desc()).paginate(page=page, per_page=1)
-            posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=max_pages_posts, per_page=2)
         else:
             announcements = Announcement.query.order_by(Announcement.date_posted.desc()).paginate(page=max_pages_announcements, per_page=1)
-            posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=2)
     else:
         announcements=None
+	
+    if test_post:
+        if page<=min_pages:
+            posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=2)
+        elif page>min_pages and max_pages>=page>max_pages_posts:
+            posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=max_pages_posts, per_page=2)
+        else:
+            posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=2)
+    else:
         posts=None
-
+	
     return render_template('home.html', posts=posts, announcements=announcements, title='Home',
                            total_pages_announcements=total_pages_announcements, total_pages_posts=total_pages_posts)
 
