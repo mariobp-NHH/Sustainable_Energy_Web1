@@ -2,7 +2,7 @@ import os
 import secrets
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort
-from webse import app, db, bcrypt
+from webse import app, db, bcrypt, test_post, test_announcement
 from webse.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm, AppStatisticsForm, SEStatisticsForm, AnnouncementForm
 from webse.forms import ModulsForm_M1_Ch2_Q1, ModulsForm_M1_Ch2_Q2, ModulsForm_M1_Ch2_Q3, ModulsForm_M1_Ch2_Q4, ModulsForm_M1_Ch2_Q5
 from webse.forms import ModulsForm_M1_Ch1_Q1, ModulsForm_M1_Ch1_Q2, ModulsForm_M1_Ch1_Q3
@@ -18,11 +18,21 @@ def before_first_request():
 @app.route('/home')
 @app.route('/')
 def home():
-    total_pages_announcements = Announcement.query.count()
-    total_pages_posts = Post.query.count()
+    if test_announcement:
+        total_pages_announcements = Announcement.query.count()
+        max_pages_announcements = Announcement.query.count()
+    else:
+        total_pages_announcements=0
+        max_pages_announcements = 0
+    if test_post:
+        
+        total_pages_posts = Post.query.count()
+        max_pages_posts = Post.query.count()/2
+    else:
+        total_pages_posts = 0
+        max_pages_posts = 0
     total_pages = min (total_pages_announcements, total_pages_posts)
-    max_pages_announcements = Announcement.query.count()/1
-    max_pages_posts = Post.query.count()/2
+    
     max_pages=max(max_pages_announcements,max_pages_posts)
     min_pages = min(max_pages_announcements, max_pages_posts)
     page = request.args.get('page', 1, type=int)
@@ -37,15 +47,20 @@ def home():
         announcements = Announcement.query.order_by(Announcement.date_posted.desc()).paginate(page=page, per_page=1)
         posts = Post.query.all()
         """
-    if page<=min_pages:
-        announcements = Announcement.query.order_by(Announcement.date_posted.desc()).paginate(page=page, per_page=1)
-        posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=2)
-    elif page>min_pages and max_pages>=page>max_pages_posts:
-        announcements = Announcement.query.order_by(Announcement.date_posted.desc()).paginate(page=page, per_page=1)
-        posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=max_pages_posts, per_page=2)
+    
+    if test_announcement and test_post:
+        if page<=min_pages:
+            announcements = Announcement.query.order_by(Announcement.date_posted.desc()).paginate(page=page, per_page=1)
+            posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=2)
+        elif page>min_pages and max_pages>=page>max_pages_posts:
+            announcements = Announcement.query.order_by(Announcement.date_posted.desc()).paginate(page=page, per_page=1)
+            posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=max_pages_posts, per_page=2)
+        else:
+            announcements = Announcement.query.order_by(Announcement.date_posted.desc()).paginate(page=max_pages_announcements, per_page=1)
+            posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=2)
     else:
-        announcements = Announcement.query.order_by(Announcement.date_posted.desc()).paginate(page=max_pages_announcements, per_page=1)
-        posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=2)
+        announcements=None
+        posts=None
 
     return render_template('home.html', posts=posts, announcements=announcements, title='Home',
                            total_pages_announcements=total_pages_announcements, total_pages_posts=total_pages_posts)
