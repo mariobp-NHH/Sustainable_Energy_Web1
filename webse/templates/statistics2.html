@@ -33,17 +33,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for entry in entries_app %}
+                    {% if entries_app %}
+                        {% for entry in entries_app %}
+                            <tr>
+                                <th scope="row">{{ current_user.username }}</th>
+                                <td>{{ entry.date_exercise.strftime("%m-%d-%Y") }}</td>
+                                <td>{{ entry.title_mo }}</td>
+                                <td>{{ entry.title_ch }}</td>
+                                <td>{{ entry.question_num }}</td>
+                                <td>{{ entry.question_result }}</td>
+                                <td><a href="{{ url_for('home') }}" class="btn btn-outline-info btn-sm">Link</a></td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
                         <tr>
-                            <th scope="row">{{ current_user.username }}</th>
-                            <td>{{ entry.date_exercise.strftime("%m-%d-%Y") }}</td>
-                            <td>{{ entry.title_mo }}</td>
-                            <td>{{ entry.title_ch }}</td>
-                            <td>{{ entry.question_num }}</td>
-                            <td>{{ entry.question_result }}</td>
-                            <td><a href="{{ url_for('home') }}" class="btn btn-outline-info btn-sm">Link</a></td>
-                        </tr>
-                    {% endfor %}
+                        </tr>   
+                    {% endif %}
                 </tbody>
             </table>
         </div>
@@ -92,17 +97,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for entry in entries_se %}
+                    {% if entries_se %}
+                        {% for entry in entries_se %}
+                            <tr>
+                                <th scope="row">{{ current_user.username }}</th>
+                                <td>{{ entry.date_exercise.strftime("%m-%d-%Y") }}</td>
+                                <td>{{ entry.title_mo }}</td>
+                                <td>{{ entry.title_ch }}</td>
+                                <td>{{ entry.question_num }}</td>
+                                <td>{{ entry.question_result }}</td>
+                                <td><a href="{{ url_for('home') }}" class="btn btn-outline-info btn-sm">Link</a></td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
                         <tr>
-                            <th scope="row">{{ current_user.username }}</th>
-                            <td>{{ entry.date_exercise.strftime("%m-%d-%Y") }}</td>
-                            <td>{{ entry.title_mo }}</td>
-                            <td>{{ entry.title_ch }}</td>
-                            <td>{{ entry.question_num }}</td>
-                            <td>{{ entry.question_result }}</td>
-                            <td><a href="{{ url_for('home') }}" class="btn btn-outline-info btn-sm">Link</a></td>
-                        </tr>
-                    {% endfor %}
+                        </tr>   
+                    {% endif %}
                 </tbody>
             </table>
         </div>
