@@ -763,9 +763,14 @@ def statistics():
                                app_correct=0, app_incorrect=0,
                                se_correct=se_correct, se_incorrect=se_incorrect)
 
-    entries_app = Moduls.query.filter_by(author=current_user).filter(Moduls.title_mo.is_('---')).order_by(Moduls.date_exercise.desc()).all()
-    entries_se = Moduls.query.filter_by(author=current_user).filter(Moduls.title_mo.is_('---')).order_by(
-        Moduls.date_exercise.desc()).all()
+    if test_moduls:
+        entries_app = Moduls.query.filter_by(author=current_user).filter(Moduls.title_mo.is_('---')).order_by(Moduls.date_exercise.desc()).all()
+        entries_se = Moduls.query.filter_by(author=current_user).filter(Moduls.title_mo.is_('---')).order_by(
+            Moduls.date_exercise.desc()).all()
+    else:
+        entries_app=None
+        entries_se=None
+	
     return render_template('statistics2.html', app_statistics_form=app_statistics_form, se_statistics_form=se_statistics_form,
                            entries_app=entries_app, entries_se=entries_se,
                                app_correct=0, app_incorrect=0,
