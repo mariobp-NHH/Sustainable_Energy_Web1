@@ -20,30 +20,22 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 
-###Check online DB and test if tables are empty
-engine_local =create_engine(DB_VAR)
-       
-df_announcement=pd.read_sql("SELECT * FROM announcement",engine_local)
-test_announcement=df_announcement.shape[0]
-if test_announcement==0:
-    test_announcement=False
-else:
-    test_announcement=True 
+class test_db:
+    def __init__(self,table_name,DB_URI):
+        engine_local=create_engine(DB_URI)
+        df_t=pd.read_sql("SELECT * FROM {}".format(table_name),engine_local)
+        test=df_t.shape[0]
+        
+        if test==0:
+            self.test_bin=False
+        else:
+            self.test_bin=True
+            
+        engine_local.dispose()
+        
 
-df_post=pd.read_sql("SELECT * FROM post",engine_local)
-test_post=df_post.shape[0]
-if test_post==0:
-    test_post=False
-else:
-    test_post=True
-
-df_moduls=pd.read_sql("SELECT * FROM moduls",engine_local)
-test_moduls=df_moduls.shape[0]
-if test_moduls==0:
-    test_moduls=False
-else:
-    test_moduls=True
-    
-engine_local.dispose()   
+test_post=test_db("post",DB_VAR).test_bin
+test_moduls=test_db("moduls",DB_VAR).test_bin
+test_announcement=test_db("announcement",DB_VAR).test_bin
 
 from webse import routes
