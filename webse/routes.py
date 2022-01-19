@@ -2,7 +2,7 @@ import os
 import secrets
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort
-from webse import app, db, bcrypt, test_post, test_announcement
+from webse import app, db, bcrypt, test_post, test_announcement, test_moduls
 from webse.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm, AppStatisticsForm, SEStatisticsForm, AnnouncementForm
 from webse.forms import ModulsForm_M1_Ch2_Q1, ModulsForm_M1_Ch2_Q2, ModulsForm_M1_Ch2_Q3, ModulsForm_M1_Ch2_Q4, ModulsForm_M1_Ch2_Q5
 from webse.forms import ModulsForm_M1_Ch1_Q1, ModulsForm_M1_Ch1_Q2, ModulsForm_M1_Ch1_Q3
@@ -705,23 +705,28 @@ def statistics():
     se_statistics_form = SEStatisticsForm()
     if app_statistics_form.validate_on_submit():
         app_statistics_input = app_statistics_form.type.data
-        entries_app = Moduls.query.filter_by(author=current_user). \
-            filter(Moduls.title_mo.is_('App Development')). \
-            filter(Moduls.title_ch.is_(app_statistics_input)). \
-            order_by(Moduls.question_num.asc()).all()
-
-        app_incorrect = Moduls.query.filter_by(author=current_user). \
-            filter(Moduls.question_result.is_(0)). \
-            filter(Moduls.title_mo.is_('App Development')). \
-            filter(Moduls.title_ch.is_(app_statistics_input)). \
-            order_by(Moduls.question_num.asc()).count()
-
-        app_correct = Moduls.query.filter_by(author=current_user). \
-            filter(Moduls.question_result.is_(1)). \
-            filter(Moduls.title_mo.is_('App Development')). \
-            filter(Moduls.title_ch.is_(app_statistics_input)). \
-            order_by(Moduls.question_num.asc()).count()
-
+        if test_moduls:
+            entries_app = Moduls.query.filter_by(author=current_user). \
+                filter(Moduls.title_mo.is_('App Development')). \
+                filter(Moduls.title_ch.is_(app_statistics_input)). \
+                order_by(Moduls.question_num.asc()).all()
+    
+            app_incorrect = Moduls.query.filter_by(author=current_user). \
+                filter(Moduls.question_result.is_(0)). \
+                filter(Moduls.title_mo.is_('App Development')). \
+                filter(Moduls.title_ch.is_(app_statistics_input)). \
+                order_by(Moduls.question_num.asc()).count()
+    
+            app_correct = Moduls.query.filter_by(author=current_user). \
+                filter(Moduls.question_result.is_(1)). \
+                filter(Moduls.title_mo.is_('App Development')). \
+                filter(Moduls.title_ch.is_(app_statistics_input)). \
+                order_by(Moduls.question_num.asc()).count()
+        else:
+            entries_app=None
+            app_incorrect=None
+            app_correct=None
+            
         flash('Your answer has been submitted!', 'success')
         return render_template('statistics2.html', app_statistics_form=app_statistics_form,
                                se_statistics_form=se_statistics_form, entries_app=entries_app,
@@ -729,24 +734,30 @@ def statistics():
                                se_correct=0, se_incorrect=0)
     if se_statistics_form.validate_on_submit():
         se_statistics_input = se_statistics_form.type.data
-        entries_se = Moduls.query.filter_by(author=current_user). \
-            filter(Moduls.title_mo.is_('Sustainable Energy')). \
-            filter(Moduls.title_ch.is_(se_statistics_input)). \
-            order_by(Moduls.question_num.asc()).all()
-
-        se_incorrect = Moduls.query.filter_by(author=current_user). \
-            filter(Moduls.question_result.is_(0)). \
-            filter(Moduls.title_mo.is_('Sustainable Energy')). \
-            filter(Moduls.title_ch.is_(se_statistics_input)). \
-            order_by(Moduls.question_num.asc()).count()
-
-        se_correct = Moduls.query.filter_by(author=current_user). \
-            filter(Moduls.question_result.is_(1)). \
-            filter(Moduls.title_mo.is_('Sustainable Energy')). \
-            filter(Moduls.title_ch.is_(se_statistics_input)). \
-            order_by(Moduls.question_num.asc()).count()
-
-        flash('Your answer has been submitted!', 'success')
+        if test_moduls:
+            entries_se = Moduls.query.filter_by(author=current_user). \
+                filter(Moduls.title_mo.is_('Sustainable Energy')). \
+                filter(Moduls.title_ch.is_(se_statistics_input)). \
+                order_by(Moduls.question_num.asc()).all()
+    
+            se_incorrect = Moduls.query.filter_by(author=current_user). \
+                filter(Moduls.question_result.is_(0)). \
+                filter(Moduls.title_mo.is_('Sustainable Energy')). \
+                filter(Moduls.title_ch.is_(se_statistics_input)). \
+                order_by(Moduls.question_num.asc()).count()
+    
+            se_correct = Moduls.query.filter_by(author=current_user). \
+                filter(Moduls.question_result.is_(1)). \
+                filter(Moduls.title_mo.is_('Sustainable Energy')). \
+                filter(Moduls.title_ch.is_(se_statistics_input)). \
+                order_by(Moduls.question_num.asc()).count()
+    
+            flash('Your answer has been submitted!', 'success')
+        else:
+                entries_se=None
+                se_incorrect=None
+                se_correct=None
+                
         return render_template('statistics2.html', app_statistics_form=app_statistics_form,
                                se_statistics_form=se_statistics_form, entries_se=entries_se,
                                app_correct=0, app_incorrect=0,
