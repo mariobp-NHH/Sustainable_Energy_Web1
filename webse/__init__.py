@@ -38,7 +38,7 @@ else:
     test_post=True
 
 df_moduls=pd.read_sql("SELECT * FROM moduls",engine_local)
-test_moduls=df_post.shape[0]
+test_moduls=df_moduls.shape[0]
 if test_moduls==0:
     test_moduls=False
 else:
