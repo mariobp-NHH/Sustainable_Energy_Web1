@@ -6,8 +6,8 @@ import os
 from sqlalchemy import create_engine
 import pandas as pd
 
-#DB_VAR=os.environ.get('DATABASE_URL_POSTGRESQL', None)
-DB_VAR="sqlite:///site.db" ###Local DB for testing
+DB_VAR=os.environ.get('DATABASE_URL_POSTGRESQL', None)
+#DB_VAR="sqlite:///site.db" ###Local DB for testing
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
