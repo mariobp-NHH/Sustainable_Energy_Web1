@@ -719,7 +719,6 @@ def chapter_type(mod):
 @login_required
 def statistics():
     mod_form = ModStatisticsForm()
-    mod_form.chapter.choices=[(chap,chap) for chap in module_chapter_link["App Development"]]
         
     if mod_form.validate_on_submit():
         module = mod_form.mod_type.data
