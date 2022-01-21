@@ -719,45 +719,37 @@ def chapter_type(mod):
 @login_required
 def statistics():
     mod_form = ModStatisticsForm()
-        
+    mod_form.chapter.choices=[(chap,chap) for chap in module_chapter_link[request.form["mod_type"]]]
     if mod_form.validate_on_submit():
-        module = mod_form.mod_type.data
-        chapter= mod_form.chapter.data
-         
-        if test_moduls:
-            entries_app = Moduls.query.filter_by(author=current_user). \
-                filter(Moduls.title_mo.is_(module)). \
-                filter(Moduls.title_ch.is_(chapter)). \
-                order_by(Moduls.question_num.asc()).all()
-    
-            app_incorrect = Moduls.query.filter_by(author=current_user). \
-                filter(Moduls.question_result.is_(0)). \
-                filter(Moduls.title_mo.is_(module)). \
-                filter(Moduls.title_ch.is_(chapter)). \
-                order_by(Moduls.question_num.asc()).count()
-    
-            app_correct = Moduls.query.filter_by(author=current_user). \
-                filter(Moduls.question_result.is_(1)). \
-                filter(Moduls.title_mo.is_(module)). \
-                filter(Moduls.title_ch.is_(chapter)). \
-                order_by(Moduls.question_num.asc()).count()
-        else:
-            entries_app=None
-            app_incorrect=None
-            app_correct=None
-            
+        mod_in=request.form["mod_type"]
+        ch_in=request.form["chapter"]
+        
+        entries_app = Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo.is_(mod_in)). \
+            filter(Moduls.title_ch.is_(ch_in)). \
+            order_by(Moduls.question_num.asc()).all()
+
+        app_incorrect = Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.question_result.is_(0)). \
+            filter(Moduls.title_mo.is_(mod_in)). \
+            filter(Moduls.title_ch.is_(ch_in)).count()
+
+        app_correct = Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.question_result.is_(1)). \
+            filter(Moduls.title_mo.is_(mod_in)). \
+            filter(Moduls.title_ch.is_(ch_in)).count()
+
         flash('Your answer has been submitted!', 'success')
         return render_template('statistics2.html', mod_form=mod_form,
                                entries_app=entries_app,
                                app_correct=app_correct, app_incorrect=app_incorrect)
 
-    if test_moduls:
-        entries_app = Moduls.query.filter_by(author=current_user).filter(Moduls.title_mo.is_('---')).order_by(Moduls.date_exercise.desc()).all()
-        entries_se = Moduls.query.filter_by(author=current_user).filter(Moduls.title_mo.is_('---')).order_by(
-            Moduls.date_exercise.desc()).all()
     else:
-        entries_app=None
-        entries_se=None
-	
-    return render_template('statistics2.html',  mod_form=mod_form,
-                           entries_app=entries_app, app_correct=0, app_incorrect=0)
+        # show validaton errors
+        for field, errors in mod_form.errors.items():
+            for error in errors:
+                flash("Error in {}: {}".format(
+                    getattr(mod_form, field).label.text,
+                    error
+                ), 'error')
+        return render_template('statistics2.html', mod_form=mod_form)
