@@ -1,9 +1,9 @@
 import os
 import secrets
 from PIL import Image
-from flask import render_template, url_for, flash, redirect, request, abort
+from flask import render_template, url_for, flash, redirect, request, abort, jsonify
 from webse import app, db, bcrypt, test_post, test_announcement, test_moduls
-from webse.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm, AppStatisticsForm, SEStatisticsForm, AnnouncementForm
+from webse.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm, ModStatisticsForm, AnnouncementForm
 from webse.forms import ModulsForm_M1_Ch2_Q1, ModulsForm_M1_Ch2_Q2, ModulsForm_M1_Ch2_Q3, ModulsForm_M1_Ch2_Q4, ModulsForm_M1_Ch2_Q5
 from webse.forms import ModulsForm_M1_Ch1_Q1, ModulsForm_M1_Ch1_Q2, ModulsForm_M1_Ch1_Q3
 from webse.forms import ModulsForm_M2_Ch1_Q1, ModulsForm_M2_Ch1_Q2, ModulsForm_M2_Ch1_Q3
@@ -227,7 +227,7 @@ def new_post_g():
 
 @app.route("/post-group/<int:post_id>")
 def post_g(post_id):
-    post = PostG.query.get_or_404(post_id)
+    post = PostG.query.get_or_404(post_id) 
     return render_template('post_g.html', title=post.title, post=post)
 
 @app.route("/post-group/user/<string:username>")
@@ -697,30 +697,50 @@ def ciao():
     entries = []
     return redirect(url_for('statistics', entries=entries))
 
-#Statistics
+#Populating dictionary
+module_chapter_link={"App Development":["Ch1. Introduction","Ch2. Installation"],
+                     "Sustainable Energy":["Ch1. Overview","Ch2. Wind"]}
+
+@app.route('/chapter_type/<mod>')
+def chapter_type(mod):
+    Allchapter=module_chapter_link[mod]
+    
+    chapArray= []
+    
+    for chap in Allchapter:
+        chapObj={}
+        chapObj["mod"]=mod
+        chapObj["chap"]=chap
+        chapArray.append(chapObj)
+    
+    return jsonify({"chap_json": chapArray})
+
 @app.route('/statistics', methods=['GET', 'POST'])
 @login_required
 def statistics():
-    app_statistics_form = AppStatisticsForm()
-    se_statistics_form = SEStatisticsForm()
-    if app_statistics_form.validate_on_submit():
-        app_statistics_input = app_statistics_form.type.data
+    mod_form = ModStatisticsForm()
+    mod_form.chapter.choices=[(chap,chap) for chap in module_chapter_link["App Development"]]
+        
+    if mod_form.validate_on_submit():
+        module = mod_form.mod_type.data
+        chapter= mod_form.chapter.data
+         
         if test_moduls:
             entries_app = Moduls.query.filter_by(author=current_user). \
-                filter(Moduls.title_mo.is_('App Development')). \
-                filter(Moduls.title_ch.is_(app_statistics_input)). \
+                filter(Moduls.title_mo.is_(module)). \
+                filter(Moduls.title_ch.is_(chapter)). \
                 order_by(Moduls.question_num.asc()).all()
     
             app_incorrect = Moduls.query.filter_by(author=current_user). \
                 filter(Moduls.question_result.is_(0)). \
-                filter(Moduls.title_mo.is_('App Development')). \
-                filter(Moduls.title_ch.is_(app_statistics_input)). \
+                filter(Moduls.title_mo.is_(module)). \
+                filter(Moduls.title_ch.is_(chapter)). \
                 order_by(Moduls.question_num.asc()).count()
     
             app_correct = Moduls.query.filter_by(author=current_user). \
                 filter(Moduls.question_result.is_(1)). \
-                filter(Moduls.title_mo.is_('App Development')). \
-                filter(Moduls.title_ch.is_(app_statistics_input)). \
+                filter(Moduls.title_mo.is_(module)). \
+                filter(Moduls.title_ch.is_(chapter)). \
                 order_by(Moduls.question_num.asc()).count()
         else:
             entries_app=None
@@ -728,40 +748,9 @@ def statistics():
             app_correct=None
             
         flash('Your answer has been submitted!', 'success')
-        return render_template('statistics2.html', app_statistics_form=app_statistics_form,
-                               se_statistics_form=se_statistics_form, entries_app=entries_app,
-                               app_correct=app_correct, app_incorrect=app_incorrect,
-                               se_correct=0, se_incorrect=0)
-    if se_statistics_form.validate_on_submit():
-        se_statistics_input = se_statistics_form.type.data
-        if test_moduls:
-            entries_se = Moduls.query.filter_by(author=current_user). \
-                filter(Moduls.title_mo.is_('Sustainable Energy')). \
-                filter(Moduls.title_ch.is_(se_statistics_input)). \
-                order_by(Moduls.question_num.asc()).all()
-    
-            se_incorrect = Moduls.query.filter_by(author=current_user). \
-                filter(Moduls.question_result.is_(0)). \
-                filter(Moduls.title_mo.is_('Sustainable Energy')). \
-                filter(Moduls.title_ch.is_(se_statistics_input)). \
-                order_by(Moduls.question_num.asc()).count()
-    
-            se_correct = Moduls.query.filter_by(author=current_user). \
-                filter(Moduls.question_result.is_(1)). \
-                filter(Moduls.title_mo.is_('Sustainable Energy')). \
-                filter(Moduls.title_ch.is_(se_statistics_input)). \
-                order_by(Moduls.question_num.asc()).count()
-    
-            flash('Your answer has been submitted!', 'success')
-        else:
-                entries_se=None
-                se_incorrect=None
-                se_correct=None
-                
-        return render_template('statistics2.html', app_statistics_form=app_statistics_form,
-                               se_statistics_form=se_statistics_form, entries_se=entries_se,
-                               app_correct=0, app_incorrect=0,
-                               se_correct=se_correct, se_incorrect=se_incorrect)
+        return render_template('statistics2.html', mod_form=mod_form,
+                               entries_app=entries_app,
+                               app_correct=app_correct, app_incorrect=app_incorrect)
 
     if test_moduls:
         entries_app = Moduls.query.filter_by(author=current_user).filter(Moduls.title_mo.is_('---')).order_by(Moduls.date_exercise.desc()).all()
@@ -771,10 +760,5 @@ def statistics():
         entries_app=None
         entries_se=None
 	
-    return render_template('statistics2.html', app_statistics_form=app_statistics_form, se_statistics_form=se_statistics_form,
-                           entries_app=entries_app, entries_se=entries_se,
-                               app_correct=0, app_incorrect=0,
-                               se_correct=0, se_incorrect=0)
-
-
-
+    return render_template('statistics2.html',  mod_form=mod_form,
+                           entries_app=entries_app, app_correct=0, app_incorrect=0)
