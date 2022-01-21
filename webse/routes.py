@@ -719,7 +719,8 @@ def chapter_type(mod):
 @login_required
 def statistics():
     mod_form = ModStatisticsForm()
-    mod_form.chapter.choices=[(chap,chap) for chap in module_chapter_link[request.form["mod_type"]]]
+    mod_form.chapter.choices=[item for sublist in list(module_chapter_link.values()) for item in sublist]
+                            
     if mod_form.validate_on_submit():
         mod_in=request.form["mod_type"]
         ch_in=request.form["chapter"]
@@ -739,9 +740,8 @@ def statistics():
             filter(Moduls.title_mo.is_(mod_in)). \
             filter(Moduls.title_ch.is_(ch_in)).count()
 
-        flash('Your answer has been submitted!', 'success')
-        return render_template('statistics2.html', mod_form=mod_form,
-                               entries_app=entries_app,
+        return render_template('statistics2.html',
+                               entries_app=entries_app,mod_form=mod_form,
                                app_correct=app_correct, app_incorrect=app_incorrect)
 
     else:
