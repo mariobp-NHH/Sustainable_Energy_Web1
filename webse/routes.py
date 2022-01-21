@@ -721,7 +721,7 @@ def statistics():
     mod_form = ModStatisticsForm()
     mod_form.chapter.choices=[item for sublist in list(module_chapter_link.values()) for item in sublist]
                             
-    if mod_form.validate_on_submit():
+    if mod_form.validate_on_submit() and test_moduls:
         mod_in=request.form["mod_type"]
         ch_in=request.form["chapter"]
         
