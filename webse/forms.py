@@ -69,18 +69,14 @@ class AnnouncementForm(FlaskForm):
     submit = SubmitField('Annoucement')
 
 #App Statistics
-class AppStatisticsForm(FlaskForm):
-    type = SelectField(validators=[DataRequired()],
-                        choices=[('Ch1. Introduction', 'Ch1. Introduction'),
-                                 ('Ch2. Installation', 'Ch2. Installation')])
-    submit = SubmitField('App Module Statistics')
-
-#Sustainable Energy Statistics
-class SEStatisticsForm(FlaskForm):
-    type = SelectField(validators=[DataRequired()],
-                        choices=[('Ch1. Overview', 'Ch1. Overview'),
-                                 ('Ch2. Wind', 'Ch2. Wind')])
-    submit = SubmitField('Sustainable Energy Module Statistics')
+class ModStatisticsForm(FlaskForm):
+    mod_type = SelectField(validators=[DataRequired()],
+                        choices=[('App Development', 'App Development'),
+                                 ('Sustainable Energy', 'Sustainable Energy')])
+    chapter = SelectField("Chapter",
+                         validators=[InputRequired()],choices=[])
+    
+    submit = SubmitField('Submit')
 
 #M1_Ch1
 class ModulsForm_M1_Ch1_Q1(FlaskForm):
