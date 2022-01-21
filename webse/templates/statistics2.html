@@ -129,7 +129,9 @@
         });
     });
     }
-
+    if ( document.querySelector('select') ) {
+			document.querySelector('select').value =  document.getElementById("chapter");
+		}
 </script>
 {% endblock%}
 {% endblock content %}
