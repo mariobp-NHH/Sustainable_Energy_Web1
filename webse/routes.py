@@ -402,11 +402,11 @@ def app_web_ch1():
 
     if form_M1_Ch1_Q2.validate_on_submit():
         if test_moduls:
-        Moduls.query.filter_by(author=current_user). \
-            filter(Moduls.title_mo.is_('App Development')). \
-            filter(Moduls.title_ch.is_('Ch1. Introduction')). \
-            filter(Moduls.question_num.is_(2)).delete()
-        db.session.commit()
+            Moduls.query.filter_by(author=current_user). \
+                filter(Moduls.title_mo.is_('App Development')). \
+                filter(Moduls.title_ch.is_('Ch1. Introduction')). \
+                filter(Moduls.question_num.is_(2)).delete()
+            db.session.commit()
         moduls = Moduls(question_str=form_M1_Ch1_Q2.type.data, author=current_user)
         if moduls.question_str == 'GitHub':
             moduls.question_result = 1
@@ -421,11 +421,12 @@ def app_web_ch1():
         return redirect(url_for('app_web_ch1'))
 
     if form_M1_Ch1_Q3.validate_on_submit():
-        Moduls.query.filter_by(author=current_user). \
-            filter(Moduls.title_mo.is_('App Development')). \
-            filter(Moduls.title_ch.is_('Ch1. Introduction')). \
-            filter(Moduls.question_num.is_(3)).delete()
-        db.session.commit()
+        if test_moduls:
+            Moduls.query.filter_by(author=current_user). \
+                filter(Moduls.title_mo.is_('App Development')). \
+                filter(Moduls.title_ch.is_('Ch1. Introduction')). \
+                filter(Moduls.question_num.is_(3)).delete()
+            db.session.commit()
         moduls = Moduls(question_str=form_M1_Ch1_Q3.type.data, author=current_user)
         if moduls.question_str == 'Easy':
             moduls.question_result = 1
