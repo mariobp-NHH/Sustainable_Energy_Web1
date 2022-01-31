@@ -5,7 +5,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
 
-DBVAR=os.environ("HEROKU_POSTGRESQL_JADE_URL_POSTGRESQL",None)
+DBVAR=os.environ.get("HEROKU_POSTGRESQL_JADE_URL_POSTGRESQL",None)
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
