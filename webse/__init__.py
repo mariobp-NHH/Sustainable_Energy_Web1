@@ -1,10 +1,11 @@
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
 
-DBVAR="postgresql://gazkwzioiybcpv:ad25cb9e705ff44de6163c2863841c5cac3f6d3b91a63657660ac78d64435840@ec2-54-220-223-3.eu-west-1.compute.amazonaws.com:5432/deklj5tgm4truj"
+DBVAR=os.environ("HEROKU_POSTGRESQL_JADE_URL_POSTGRESQL",None)
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
