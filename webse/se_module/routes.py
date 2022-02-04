@@ -1350,7 +1350,7 @@ def se_web_ch4_ex1_chat_query():
     page = request.args.get('page', 1, type=int)
     chats = Chat.query.filter(Chat.chat_module=='SE_ch4_ex1').order_by(Chat.date_posted.desc()).paginate(page=page, per_page=4)
     return render_template('se web/ch4/se_web_ch4_ex1_chat_query.html', title='SE Web - ch4 - Ex1',
-                           chats=chats, legend='Sustainable Energy, Chapter 4, Exercise 1')
+                           chats=chats, legend='Sustainable Energy, Chapter 4, Exercise 1',func=read)
 
 #SE, ch4, Exercise 2.
 @se_module.route('/sustainable_energy_web/ch4/ex2', methods=['GET', 'POST'])
