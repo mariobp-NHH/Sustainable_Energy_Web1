@@ -200,7 +200,7 @@ def new_chat_create_se_g2():
 @chats.route("/chat/<int:chat_id>")
 def chat(chat_id):
     chat = Chat.query.get_or_404(chat_id)
-    return render_template('chat/chat.html', title=chat.title, chat=chat)
+    return render_template('chat/chat.html', title=chat.title, chat=chat, func=read_image)
 
 
 
