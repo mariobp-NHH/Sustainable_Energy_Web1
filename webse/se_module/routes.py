@@ -11,7 +11,8 @@ from webse.se_module.forms import ModulsForm_m2_ch4_q4, ModulsForm_m2_ch4_q5, Mo
 from webse.models import Moduls, Chat
 from flask_login import login_user, current_user, logout_user, login_required
 from test_table import testdf
-        
+from webse.users.utils import read_image
+
 se_module = Blueprint('se_module', __name__)
 
 @se_module.route('/sustainable_energy_web')
@@ -164,7 +165,7 @@ def se_web_ch1_ex1_chat_query():
     else:
         chats=None                                                                                                     
     return render_template('se web/ch1/se_web_ch1_ex1_chat_query.html', title='SE Web - Ch1 - Ex1',
-                           chats=chats, legend='Sustainable Energy, Chapter 1, Exercise 1')
+                           chats=chats, legend='Sustainable Energy, Chapter 1, Exercise 1',func=read_image)
 
 #SE, Ch1, Exercise 2.
 @se_module.route('/sustainable_energy_web/ch1/ex2', methods=['GET', 'POST'])
@@ -249,7 +250,7 @@ def se_web_ch1_ex2_chat_query():
     chats = Chat.query.filter(Chat.chat_module=='SE_ch1_ex2').order_by(Chat.date_posted.desc()).paginate(page=page,
                                                                                                             per_page=4)
     return render_template('se web/ch1/se_web_ch1_ex2_chat_query.html', title='SE Web - Ch1 - ex2',
-                           chats=chats, legend='Sustainable Energy, Chapter 1, Exercise 2')
+                           chats=chats, legend='Sustainable Energy, Chapter 1, Exercise 2',func=read_image)
 
 
 ##########################################
@@ -513,7 +514,7 @@ def se_web_ch2_ex1_chat_query():
     page = request.args.get('page', 1, type=int)
     chats = Chat.query.filter(Chat.chat_module=='SE_ch2_ex1').order_by(Chat.date_posted.desc()).paginate(page=page, per_page=4)
     return render_template('se web/ch2/se_web_ch2_ex1_chat_query.html', title='SE Web - ch2 - Ex1',
-                           chats=chats, legend='Sustainable Energy, Chapter 2, Exercise 1')
+                           chats=chats, legend='Sustainable Energy, Chapter 2, Exercise 1',func=read_image)
 
 #SE, Ch2, Exercise 2.
 @se_module.route('/sustainable_energy_web/ch2/ex2', methods=['GET', 'POST'])
@@ -595,7 +596,7 @@ def se_web_ch2_ex2_chat_query():
     page = request.args.get('page', 1, type=int)
     chats = Chat.query.filter(Chat.chat_module=='SE_ch2_ex2').order_by(Chat.date_posted.desc()).paginate(page=page,per_page=4)
     return render_template('se web/ch2/se_web_ch2_ex2_chat_query.html', title='SE Web - ch2 - ex2',
-                           chats=chats, legend='Sustainable Energy, Chapter 2, Exercise 2')
+                           chats=chats, legend='Sustainable Energy, Chapter 2, Exercise 2',func=read_image)
 
 #SE, Ch2, Exercise 3.
 @se_module.route('/sustainable_energy_web/ch2/ex3', methods=['GET', 'POST'])
@@ -678,7 +679,7 @@ def se_web_ch2_ex3_chat_query():
     page = request.args.get('page', 1, type=int)
     chats = Chat.query.filter(Chat.chat_module=='SE_ch2_ex3').order_by(Chat.date_posted.desc()).paginate(page=page,per_page=4)
     return render_template('se web/ch2/se_web_ch2_ex3_chat_query.html', title='SE Web - ch2 - ex3',
-                           chats=chats, legend='Sustainable Energy, Chapter 2, Exercise 3')
+                           chats=chats, legend='Sustainable Energy, Chapter 2, Exercise 3',func=read_image)
 
 ##########################################
 ## Sustainable Energy Module, Chapter 3 ##
@@ -963,7 +964,7 @@ def se_web_ch3_ex1_chat_query():
     page = request.args.get('page', 1, type=int)
     chats = Chat.query.filter(Chat.chat_module=='SE_ch3_ex1').order_by(Chat.date_posted.desc()).paginate(page=page, per_page=4)
     return render_template('se web/ch3/se_web_ch3_ex1_chat_query.html', title='SE Web - ch3 - Ex1',
-                           chats=chats, legend='Sustainable Energy, Chapter 3, Exercise 1')
+                           chats=chats, legend='Sustainable Energy, Chapter 3, Exercise 1',func=read_image)
 
 #SE, Ch3, Exercise 2.
 @se_module.route('/sustainable_energy_web/ch3/ex2', methods=['GET', 'POST'])
@@ -1045,7 +1046,7 @@ def se_web_ch3_ex2_chat_query():
     page = request.args.get('page', 1, type=int)
     chats = Chat.query.filter(Chat.chat_module=='SE_ch3_ex2').order_by(Chat.date_posted.desc()).paginate(page=page, per_page=4)
     return render_template('se web/ch3/se_web_ch3_ex2_chat_query.html', title='SE Web - ch3 - ex2',
-                           chats=chats, legend='Sustainable Energy, Chapter 3, Exercise 2')
+                           chats=chats, legend='Sustainable Energy, Chapter 3, Exercise 2',func=read_image)
 
 ##########################################
 ## Sustainable Energy Module, Chapter 4 ##
@@ -1350,7 +1351,7 @@ def se_web_ch4_ex1_chat_query():
     page = request.args.get('page', 1, type=int)
     chats = Chat.query.filter(Chat.chat_module=='SE_ch4_ex1').order_by(Chat.date_posted.desc()).paginate(page=page, per_page=4)
     return render_template('se web/ch4/se_web_ch4_ex1_chat_query.html', title='SE Web - ch4 - Ex1',
-                           chats=chats, legend='Sustainable Energy, Chapter 4, Exercise 1',func=read_file)
+                           chats=chats, legend='Sustainable Energy, Chapter 4, Exercise 1',func=read_image)
 
 #SE, ch4, Exercise 2.
 @se_module.route('/sustainable_energy_web/ch4/ex2', methods=['GET', 'POST'])
@@ -1432,4 +1433,4 @@ def se_web_ch4_ex2_chat_query():
     page = request.args.get('page', 1, type=int)
     chats = Chat.query.filter(Chat.chat_module=='SE_ch4_ex2').order_by(Chat.date_posted.desc()).paginate(page=page, per_page=4)
     return render_template('se web/ch4/se_web_ch4_ex2_chat_query.html', title='SE Web - ch4 - ex2',
-                           chats=chats, legend='Sustainable Energy, Chapter 4, Exercise 2')
+                           chats=chats, legend='Sustainable Energy, Chapter 4, Exercise 2',func=read_image)
