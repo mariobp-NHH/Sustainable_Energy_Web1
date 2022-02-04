@@ -14,17 +14,11 @@ import secrets
 
 ###-------Bucket Info
 
-#ACCESS_KEY=os.environ.get('ACCESS_KEY', None)
+ACCESS_KEY=os.environ.get('ACCESS_KEY', None)
 
-#SECRET_KEY=os.environ.get('SECRET_KEY', None)
+SECRET_KEY=os.environ.get('SECRET_KEY', None)
 
-#BUCKET=os.environ.get('BUCKET', None)
-
-ACCESS_KEY="AKIAUCJDCUAMV3T6RJMW"
-
-SECRET_KEY="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"
-
-BUCKET="ene425pics"
+BUCKET=os.environ.get('BUCKET', None)
 
 s3_r = boto3.resource('s3',
                       aws_access_key_id=ACCESS_KEY,
