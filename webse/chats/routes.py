@@ -86,7 +86,8 @@ def chat_web_chat_se_g1():
     page = request.args.get('page', 1, type=int)
     chats = Chat.query.filter(Chat.chat_module=='Sustainable Energy Module Chat').\
         filter(Chat.chat_group=='Group 1').order_by(Chat.date_posted.desc()).paginate(page=page, per_page=4)
-    return render_template('chat/chat_se_g1.html', chats=chats, title=' Chat SE G1', legend='Sustainable Energy Module Chat, Group 1',func=read_image)
+    return render_template('chat/chat_se_g1.html', chats=chats, title=' Chat SE G1', legend='Sustainable Energy Module Chat, Group 1',func=read_image,
+                          paragraph='Fabion Abazaj, Liandong Wu, Kristian Sjøen Rossland, Maren Johansen Øyan, Marthine Hjartåker Ingebrigtsen, Petter Sveen Nygaard')
 
 
 @chats.route('/chat_web/chat_se_g2')
@@ -213,7 +214,8 @@ def new_chat_create_se_g1():
         db.session.commit()
         flash('Your chat has been created!', 'success')
         return redirect(url_for('chats.chat_web'))
-    return render_template('chat/create_chat_se_g1.html', title='Create Chat', form=form, legend='Sustainable Energy Module Chat, Group 1')
+    return render_template('chat/create_chat_se_g1.html', title='Create Chat', form=form, legend='Sustainable Energy Module Chat, Group 1',
+                          paragraph='Fabion Abazaj, Liandong Wu, Kristian Sjøen Rossland, Maren Johansen Øyan, Marthine Hjartåker Ingebrigtsen, Petter Sveen Nygaard')
 
 
 @chats.route("/chat_new/create/se_g2", methods=['GET', 'POST'])
