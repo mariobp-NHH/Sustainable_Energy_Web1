@@ -42,7 +42,7 @@ def chat_web_chat_app_g1():
     chats = Chat.query.filter(Chat.chat_module=='App Module Chat').\
         filter(Chat.chat_group=='Group 1').order_by(Chat.date_posted.desc()).paginate(page=page, per_page=4)
     return render_template('chat/chat_app_g1.html', chats=chats, title=' Chat App G1', legend='App Module Chat, Group 1',
-                           paragraph='Moni (Monica), KieranClark, Solveig, Kleppe (Peder), Rebecca, ethan.mcchristian', func=read_image)
+                           paragraph='Moni (Monica), KieranClark, Solveig, Kleppe (Peder), Rebecca, ethan.mcchristian, Ivanessa', func=read_image)
 
 @chats.route('/chat_web/chat_app_g2')
 @login_required
@@ -145,7 +145,7 @@ def new_chat_create_app_g1():
         flash('Your chat has been created!', 'success')
         return redirect(url_for('chats.chat_web'))
     return render_template('chat/create_chat_app_g1.html', title='Create Chat', form=form, legend='App Module Chat, Group 1',
-                           paragraph='Moni (Monica), KieranClark, Solveig, Kleppe (Peder), Rebecca, ethan.mcchristian')
+                           paragraph='Moni (Monica), KieranClark, Solveig, Kleppe (Peder), Rebecca, ethan.mcchristian, Ivanessa')
 
 @chats.route("/chat_new/create/app_g2", methods=['GET', 'POST'])
 @login_required
