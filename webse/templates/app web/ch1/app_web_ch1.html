@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <!-- Header -->
+    <section>
+        <header class="header_css", style="background-color=#f2d95c">
+            <div class="container">
+                <div class="d-sm-flex align-items-center justify-content-between">
+                  <div class="col-lg-7 col-md-7 col-sm-6 col-12">
+                    <h1> <span class="text-warning"> Chapter 1. Installation and First App </span></h1>
+                    <p class="mb-1">
+                      In this chapter, we install Python and Flask. We choose an editor to develop our project. We learn
+                        to create and activate virtual environments. We write and run our first app in our computers. Finally,
+                        we deploy our app by using Github and Heroku.
+                    </p>
+                    </br>
+                    <div class="container_buttons_links_header">
+                       <div class="btn">
+                           <a href="#" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Video</a>
+                       </div>
+                       <div class="btn">
+                            <a href="https://github.com/mariobp-NHH/ENE425-Code/tree/main/Ch1.%20Installation" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Github</a>
+                       </div>
+                    </div>
+                    </br>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                          <h5 class="mb-1">Monday challenge breakfast</h5>
+                          <p class="mb-1">
+                              The students have to create a new route to the App Calculator.
+                          </p>
+                      </li>
+                      <li class="list-group-item">
+                          <h5 class="mb-1">Installation (Python and Flask)</h5>
+                          <p class="mb-1">
+                              We install Python and Flask, and we verify that Flask has been installed correctly.
+                          </p>
+                      </li>
+                      <li class="list-group-item">
+                          <h5 class="mb-1">Choose an editor to develop our app</h5>
+                          <p class="mb-1">
+                              We choose an editor to develop our app.
+                          </p>
+                      </li>
+                      <li class="list-group-item">
+                          <h5 class="mb-1">Virtual environment</h5>
+                          <p class="mb-1">
+                              We learn to create and activate virtual environments to develop our app.
+                          </p>
+                      </li>
+                      <li class="list-group-item">
+                          <h5 class="mb-1">First App</h5>
+                          <p class="mb-1">
+                              We develop our first app that contain the basic structure of our final webpage.
+                          </p>
+                      </li>
+                    </ul>
+                    </br>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-5 col-12">
+                      <img src="{{url_for('static', filename='figures/app/ch1/ch1_icon.svg')}}" alt=""/>
+                  </div>
+                </div>
+            </div>
+        </header>
+    </section>
+
+
+<!--introduction-->
+    <section id="breakfast" class="bg-white p-5 p-lg-5 pt-lg-5 text-center text-sm-start">
+
+        <div class="container">
+            <div class="section_intro_css">
+                <div class="box">
+
+                </div>
+                <div class="box">
+                <h2 style="justify-content:center;">Monday challenge breakfast</h2>
+                <p>
+                    For the Monday challenge breakfast, you have to create a new route to the App Calculator webpage.
+                    You have more information about the challenge at the end of the video of this chapter.
+                </p>
+                </div>
+                <div class="box">
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+<!--Section 1-->
+    <section id="section1" class="p-5 p-lg-5 pt-lg-5 text-white text-center text-sm-start", style="background-color:#6c757d;">
+        <div class="container">
+
+            <h2>Installation (Python and Flask); Editor; Virtual Environment; First App</h2>
+
+            <p>Subsection</p>
+
+            <!--Text-Image-->
+            <div class="text_video_css">
+                <div>
+                    Text ....
+                </div>
+                <div class="embed-responsive embed-responsive-16by9">
+                    Video ...
+                  <!--<iframe class="embed-responsive-item" src="{{url_for('static', filename='videos/app/ch1/ch1_a.mp4')}}"></iframe>-->
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+<!--Section 2-->
+    <section id="section3" class="bg-white p-5 p-lg-5 pt-lg-5 text-center text-sm-start">
+
+        <div class="container">
+            <h2>Questions</h2>
+            <p>
+                ...
+            </p>
+
+            <h5>Questions:</h5>
+            <div class="questions_css">
+                <div class="question">
+                    ...
+                </div>
+                <div class="question">
+                    ...
+                </div>
+            </div>
+        </div>
+
+    </section>
+{% endblock content %}
