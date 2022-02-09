@@ -87,7 +87,8 @@ def chat_web_chat_se_g1():
     chats = Chat.query.filter(Chat.chat_module=='Sustainable Energy Module Chat').\
         filter(Chat.chat_group=='Group 1').order_by(Chat.date_posted.desc()).paginate(page=page, per_page=4)
     return render_template('chat/chat_se_g1.html', chats=chats, title=' Chat SE G1', legend='Sustainable Energy Module Chat, Group 1',func=read_image,
-                          paragraph='Fabion Abazaj, Liandong Wu, Kristian Sjøen Rossland, Maren Johansen Øyan, Marthine Hjartåker Ingebrigtsen, Petter Sveen Nygaard')
+                          paragraph1='Fabion Abazaj, Liandong Wu, Kristian Sjøen Rossland, Maren Johansen Øyan, Marthine Hjartåker Ingebrigtsen, Petter Sveen Nygaard',
+                          paragraph2='Nuclear energy and Renewable Energy Sources')
 
 
 @chats.route('/chat_web/chat_se_g2')
@@ -96,7 +97,9 @@ def chat_web_chat_se_g2():
     page = request.args.get('page', 1, type=int)
     chats = Chat.query.filter(Chat.chat_module=='Sustainable Energy Module Chat').\
         filter(Chat.chat_group=='Group 2').order_by(Chat.date_posted.desc()).paginate(page=page, per_page=4)
-    return render_template('chat/chat_se_g2.html', chats=chats, title=' Chat SE G2', legend='Sustainable Energy Module Chat, Group 2',func=read_image)
+    return render_template('chat/chat_se_g2.html', chats=chats, title=' Chat SE G2', legend='Sustainable Energy Module Chat, Group 2',func=read_image,
+                          paragraph1='Runar Haukås Johnston, Elizaveta Goncharova, Sebastian Bergseth, Veronika Priakhina, Louise Nicolini, Agathe Brattaule',
+                           paragraph2='Political gender balance efffect on renewables in the energy mix')
 
 ###################################################
 ####   Block 4. Create, update, delete chat    ####
@@ -215,7 +218,8 @@ def new_chat_create_se_g1():
         flash('Your chat has been created!', 'success')
         return redirect(url_for('chats.chat_web'))
     return render_template('chat/create_chat_se_g1.html', title='Create Chat', form=form, legend='Sustainable Energy Module Chat, Group 1',
-                          paragraph='Fabion Abazaj, Liandong Wu, Kristian Sjøen Rossland, Maren Johansen Øyan, Marthine Hjartåker Ingebrigtsen, Petter Sveen Nygaard')
+                          paragraph1='Fabion Abazaj, Liandong Wu, Kristian Sjøen Rossland, Maren Johansen Øyan, Marthine Hjartåker Ingebrigtsen, Petter Sveen Nygaard',
+                           paragraph2='Nuclear energy and Renewable Energy Sources')
 
 
 @chats.route("/chat_new/create/se_g2", methods=['GET', 'POST'])
@@ -229,7 +233,9 @@ def new_chat_create_se_g2():
         db.session.commit()
         flash('Your chat has been created!', 'success')
         return redirect(url_for('chats.chat_web'))
-    return render_template('chat/create_chat_se_g2.html', title='Create Chat', form=form, legend='Sustainable Energy Module Chat, Group 2')
+    return render_template('chat/create_chat_se_g2.html', title='Create Chat', form=form, legend='Sustainable Energy Module Chat, Group 2',
+                          paragraph1='Runar Haukås Johnston, Elizaveta Goncharova, Sebastian Bergseth, Veronika Priakhina, Louise Nicolini, Agathe Brattaule',
+                           paragraph2='Political gender balance efffect on renewables in the energy mix')
 
 @chats.route("/chat/<int:chat_id>")
 def chat(chat_id):
