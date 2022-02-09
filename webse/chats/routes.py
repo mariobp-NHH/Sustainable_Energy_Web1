@@ -42,7 +42,7 @@ def chat_web_chat_app_g1():
     chats = Chat.query.filter(Chat.chat_module=='App Module Chat').\
         filter(Chat.chat_group=='Group 1').order_by(Chat.date_posted.desc()).paginate(page=page, per_page=4)
     return render_template('chat/chat_app_g1.html', chats=chats, title=' Chat App G1', legend='App Module Chat, Group 1',
-                           paragraph='Moni (Monica), KieranClark, Solveig, Kleppe (Peder), Rebecca, ethan.mcchristian, Ivanessa', func=read_image)
+                           paragraph='Moni (Monica), KieranClark, Solveig, Kleppe (Peder), Rebecca, ethan.mcchristian, Ivanessa, Katharina, Hala', func=read_image)
 
 @chats.route('/chat_web/chat_app_g2')
 @login_required
@@ -51,7 +51,7 @@ def chat_web_chat_app_g2():
     chats = Chat.query.filter(Chat.chat_module=='App Module Chat').\
         filter(Chat.chat_group=='Group 2').order_by(Chat.date_posted.desc()).paginate(page=page, per_page=4)
     return render_template('chat/chat_app_g2.html', chats=chats, title=' Chat App G2', legend='App Module Chat, Group 2',
-                           paragraph='Veronika, csalvati (Cristina), Krossland (Kristian), elizaveta.goncharova, Sabrina, Steffen, Vanessa', func=read_image)
+                           paragraph='Veronika, csalvati (Cristina), Krossland (Kristian), elizaveta.goncharova, Sabrina, Steffen, Vanessa, Axel', func=read_image)
 
 @chats.route('/chat_web/chat_app_g3')
 @login_required
@@ -60,7 +60,7 @@ def chat_web_chat_app_g3():
     chats = Chat.query.filter(Chat.chat_module=='App Module Chat').\
         filter(Chat.chat_group=='Group 3').order_by(Chat.date_posted.desc()).paginate(page=page, per_page=4)
     return render_template('chat/chat_app_g3.html', chats=chats, title=' Chat App G3', legend='App Module Chat, Group 3',
-                           paragraph='Marita, Paula, paolo rossi, runar_johnston, Louise, mitcht (Mitchell), Klara', func=read_image)
+                           paragraph='Marita, Paula, paolo rossi, runar_johnston, Louise, mitcht (Mitchell), Klara, Yasmina', func=read_image)
 
 @chats.route('/chat_web/chat_app_g4')
 @login_required
@@ -69,7 +69,7 @@ def chat_web_chat_app_g4():
     chats = Chat.query.filter(Chat.chat_module=='App Module Chat').\
         filter(Chat.chat_group=='Group 4').order_by(Chat.date_posted.desc()).paginate(page=page, per_page=4)
     return render_template('chat/chat_app_g4.html', chats=chats, title=' Chat App G4', legend='App Module Chat, Group 4',
-                           paragraph='Seb (Sebastian), Leonora Skorpen, conte, fabian, Marthine, FilipF, Tiphaine', func=read_image)
+                           paragraph='Seb (Sebastian), Leonora Skorpen, conte, fabian, Marthine, FilipF, Tiphaine, Igor', func=read_image)
 
 @chats.route('/chat_web/chat_app_g5')
 @login_required
@@ -145,7 +145,7 @@ def new_chat_create_app_g1():
         flash('Your chat has been created!', 'success')
         return redirect(url_for('chats.chat_web'))
     return render_template('chat/create_chat_app_g1.html', title='Create Chat', form=form, legend='App Module Chat, Group 1',
-                           paragraph='Moni (Monica), KieranClark, Solveig, Kleppe (Peder), Rebecca, ethan.mcchristian, Ivanessa')
+                           paragraph='Moni (Monica), KieranClark, Solveig, Kleppe (Peder), Rebecca, ethan.mcchristian, Ivanessa, Katharina, Hala')
 
 @chats.route("/chat_new/create/app_g2", methods=['GET', 'POST'])
 @login_required
@@ -159,7 +159,7 @@ def new_chat_create_app_g2():
         flash('Your chat has been created!', 'success')
         return redirect(url_for('chats.chat_web'))
     return render_template('chat/create_chat_app_g3.html', title='Create Chat', form=form, legend='App Module Chat, Group 2',
-                           paragraph='Veronika, csalvati (Cristina), Krossland (Kristian), elizaveta.goncharova, Sabrina, Steffen, Vanessa')
+                           paragraph='Veronika, csalvati (Cristina), Krossland (Kristian), elizaveta.goncharova, Sabrina, Steffen, Vanessa, Axel')
 
 @chats.route("/chat_new/create/app_g3", methods=['GET', 'POST'])
 @login_required
@@ -173,7 +173,7 @@ def new_chat_create_app_g3():
         flash('Your chat has been created!', 'success')
         return redirect(url_for('chats.chat_web'))
     return render_template('chat/create_chat_app_g3.html', title='Create Chat', form=form, legend='App Module Chat, Group 3',
-                           paragraph='Marita, Paula, paolo rossi, runar_johnston, Louise, mitcht (Mitchell), Klara')
+                           paragraph='Marita, Paula, paolo rossi, runar_johnston, Louise, mitcht (Mitchell), Klara, Yasmina')
 
 @chats.route("/chat_new/create/app_g4", methods=['GET', 'POST'])
 @login_required
@@ -187,7 +187,7 @@ def new_chat_create_app_g4():
         flash('Your chat has been created!', 'success')
         return redirect(url_for('chats.chat_web'))
     return render_template('chat/create_chat_app_g4.html', title='Create Chat', form=form, legend='App Module Chat, Group 4',
-                           paragraph='Seb (Sebastian), Leonora Skorpen, conte, fabian, Marthine, FilipF, Tiphaine')
+                           paragraph='Seb (Sebastian), Leonora Skorpen, conte, fabian, Marthine, FilipF, Tiphaine, Igor')
 
 @chats.route("/chat_new/create/app_g5", methods=['GET', 'POST'])
 @login_required
