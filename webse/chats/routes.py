@@ -78,7 +78,7 @@ def chat_web_chat_app_g5():
     chats = Chat.query.filter(Chat.chat_module=='App Module Chat').\
         filter(Chat.chat_group=='Group 5').order_by(Chat.date_posted.desc()).paginate(page=page, per_page=4)
     return render_template('chat/chat_app_g5.html', chats=chats, title=' Chat App G5', legend='App Module Chat, Group 5',
-                           paragraph='Ruth, ashish.kumar, marfjo (Maria), Marenoj (Maren), petnyg (Petter), Addison Liandong Wu, Mokhinur', func=read_image)
+                           paragraph='Ruth, ashish.kumar, marfjo (Maria), Marenoj (Maren), petnyg (Petter), Addison Liandong Wu, Mokhinur, Jon Heine', func=read_image)
 
 @chats.route('/chat_web/chat_se_g1')
 @login_required
@@ -201,7 +201,7 @@ def new_chat_create_app_g5():
         flash('Your chat has been created!', 'success')
         return redirect(url_for('chats.chat_web'))
     return render_template('chat/create_chat_app_g5.html', title='Create Chat', form=form, legend='App Module Chat, Group 5',
-                           paragraph='Ruth, ashish.kumar, marfjo (Maria), Marenoj (Maren), petnyg (Petter), Addison Liandong Wu, Mokhinur')
+                           paragraph='Ruth, ashish.kumar, marfjo (Maria), Marenoj (Maren), petnyg (Petter), Addison Liandong Wu, Mokhinur, Jon Heine')
 
 @chats.route("/chat_new/create/se_g1", methods=['GET', 'POST'])
 @login_required
