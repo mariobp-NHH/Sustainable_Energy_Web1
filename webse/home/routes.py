@@ -20,7 +20,7 @@ home= Blueprint('home', __name__)
 def home_main():
 
     page = request.args.get('page', 1, type=int)
-    announcements = Announcement.query.order_by(Announcement.date_posted.desc()).paginate(page=page, per_page=2)
+    announcements = Announcement.query.order_by(Announcement.date_posted.desc()).paginate(page=page, per_page=1)
     return render_template('home.html', announcements=announcements, title='Home',func=read_image)
 
 
