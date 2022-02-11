@@ -121,6 +121,16 @@ def chat_web_chat_se_g4():
                            paragraph1='Hala Al Jamal, Cristina Salvati, Ivanessa Staykova, Keiran Clark, Monica Schwartzel, Peder Sebastian Kleppe',
                            paragraph2='Energy storage and its interplay with the mining and sustainable energy industries')
 
+@chats.route('/chat_web/chat_se_g5')
+@login_required
+def chat_web_chat_se_g5():
+    page = request.args.get('page', 1, type=int)
+    chats = Chat.query.filter(Chat.chat_module=='Sustainable Energy Module Chat').\
+        filter(Chat.chat_group=='Group 5').order_by(Chat.date_posted.desc()).paginate(page=page, per_page=4)
+    return render_template('chat/chat_se_g5.html', chats=chats, title=' Chat SE G5', legend='Sustainable Energy Module Chat, Group 5',func=read_image,
+                           paragraph1='Steffen Nathan, Maria Selsås, Ashish Kumar, Leopold Reinisch, Jon Heine, Filip Fandel',
+                           paragraph2='Agrivoltaics -The use of croplands for both agriculture and solar energy at the same time')
+
 ###################################################
 ####   Block 4. Create, update, delete chat    ####
 ###################################################
@@ -286,6 +296,21 @@ def new_chat_create_se_g4():
     return render_template('chat/create_chat_se_g4.html', title='Create Chat', form=form, legend='Sustainable Energy Module Chat, Group 4',
                            paragraph1='Hala Al Jamal, Cristina Salvati, Ivanessa Staykova, Keiran Clark, Monica Schwartzel, Peder Sebastian Kleppe',
                            paragraph2='Energy storage and its interplay with the mining and sustainable energy industries')
+
+@chats.route("/chat_new/create/se_g5", methods=['GET', 'POST'])
+@login_required
+def new_chat_create_se_g5():
+    form = ChatFormUpdate()
+    if form.validate_on_submit():
+        chat = Chat(title=form.title.data, content=form.content.data, author=current_user, chat_module='Sustainable Energy Module Chat',
+                     chat_group='Group 5')
+        db.session.add(chat)
+        db.session.commit()
+        flash('Your chat has been created!', 'success')
+        return redirect(url_for('chats.chat_web'))
+    return render_template('chat/create_chat_se_g5.html', title='Create Chat', form=form, legend='Sustainable Energy Module Chat, Group 5',
+                           paragraph1='Steffen Nathan, Maria Selsås, Ashish Kumar, Leopold Reinisch, Jon Heine, Filip Fandel',
+                           paragraph2='Agrivoltaics -The use of croplands for both agriculture and solar energy at the same time')
 
 @chats.route("/chat/<int:chat_id>")
 def chat(chat_id):
