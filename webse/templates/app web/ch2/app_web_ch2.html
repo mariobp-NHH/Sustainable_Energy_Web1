@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <!-- Header -->
+    <section>
+        <header class="header_css", style="background-color=#f2d95c">
+            <div class="container">
+                <div class="d-sm-flex align-items-center justify-content-between">
+                  <div class="col-lg-7 col-md-7 col-sm-6 col-12">
+                    <h1> <span class="text-warning"> Chapter 2. Templates in the HTML code </span></h1>
+                    <p class="mb-1">
+                      This chapter consists on three parts. First, in the routes file, we develop a complete HTML code
+                        with the content of each of the sections of our webpage. Second, to keep the route file as simple
+                        and organized as possible, we place the HTML code in a separated HTML file that is stored in the template
+                        folder. Finally, to avoid repetition, to simplify the HTML code and to increase the efficiency of our
+                        code, we introduce templates.
+                    </p>
+                    </br>
+                    <div class="container_buttons_links_header">
+                       <div class="btn">
+                           <a href="#" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Video</a>
+                       </div>
+                       <div class="btn">
+                            <a href="https://github.com/mariobp-NHH/ENE425-Code/tree/main/Ch2.%20Templates" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Github</a>
+                       </div>
+                       <div class="btn">
+                            <a href="https://nhhit-my.sharepoint.com/:f:/g/personal/mario_paz_nhh_no/Emz8NaYUSoFCgSEIUbRU1h4B7GAV7L5wYMOYLHoUgKwg7g?e=jwsdwu" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">OneDrive</a>
+                       </div>
+                    </div>
+                    </br>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                          <h5 class="mb-1">Monday challenge breakfast</h5>
+                          <p class="mb-1">
+                              The students have to change some basic styles in one of the HTML files.
+                          </p>
+                      </li>
+                      <li class="list-group-item">
+                          <h5 class="mb-1">HTML code within the routes file</h5>
+                          <p class="mb-1">
+                              In the routes file, we develop a complete HTML code
+                        with the content of each of the sections of our webpage.
+                          </p>
+                      </li>
+                      <li class="list-group-item">
+                          <h5 class="mb-1">HTML code in a separated HTML file</h5>
+                          <p class="mb-1">
+                              To keep the route file as simple
+                        and organized as possible, we place the HTML code in a separated HTML file that is stored in the template
+                        folder.
+                          </p>
+                      </li>
+                      <li class="list-group-item">
+                          <h5 class="mb-1">Templates in the HTML files</h5>
+                          <p class="mb-1">
+                              To avoid repetition, to simplify the HTML code and to increase the efficiency of our
+                        code, we introduce templates.
+                          </p>
+                      </li>
+                    </ul>
+                    </br>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-5 col-12">
+                      <img src="{{url_for('static', filename='figures/app/ch2/ch2_icon.svg')}}" alt=""/>
+                  </div>
+                </div>
+            </div>
+        </header>
+    </section>
+
+
+<!--introduction-->
+    <section id="breakfast" class="bg-white p-5 p-lg-5 pt-lg-5 text-center text-sm-start">
+
+        <div class="container">
+            <div class="section_intro_css">
+                <div class="box">
+
+                </div>
+                <div class="box">
+                <h2 style="justify-content:center;">Monday challenge breakfast</h2>
+                <p>
+                    The students have to change some basic styles in one of the HTML files. You can change the background
+                    color, the size of the letters, the alignment of the content, underline some part of the text....
+                </p>
+                </div>
+                <div class="box">
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+<!--Section 1-->
+    <section id="section1" class="p-5 p-lg-5 pt-lg-5 text-white text-center text-sm-start", style="background-color:#6c757d;">
+        <div class="container">
+
+            <h2>Templates in the HTML code</h2>
+
+            <!--Text-Image-->
+            <div class="text_video_css">
+                <div>
+                    Text ....
+                </div>
+                <div class="embed-responsive embed-responsive-16by9">
+                    Video ...
+                  <!--<iframe class="embed-responsive-item" src="{{url_for('static', filename='videos/app/ch1/ch1_a.mp4')}}"></iframe>-->
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+{% endblock content %}
