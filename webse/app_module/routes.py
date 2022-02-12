@@ -26,27 +26,11 @@ def app_web():
 @app_module.route('/app_web/ch1', methods=['GET', 'POST'])
 @login_required
 def app_web_ch1():
-    form_m1_ch1_q1 = ModulsForm_m1_ch1_q1()
+    return render_template('app web/ch1/app_web_ch1.html', title='App Web - Ch1')
 
-    if form_m1_ch1_q1.validate_on_submit():
-        Moduls.query.filter_by(author=current_user).\
-            filter(Moduls.title_mo=='App Development').\
-            filter(Moduls.title_ch=='Ch1. Introduction').\
-            filter(Moduls.question_num==1).delete()
-        db.session.commit()
-        moduls = Moduls(question_str=form_m1_ch1_q1.type.data, author=current_user)
-        if moduls.question_str == 'Python':
-            moduls.question_result = 1
-        else:
-            moduls.question_result = 0
-        moduls.title_mo = 'App Development'
-        moduls.title_ch = 'Ch1. Introduction'
-        moduls.question_num = 1
-        db.session.add(moduls)
-        db.session.commit()
-        flash('Your answer has been submitted!', 'success')
-        return redirect(url_for('app_module.app_web_ch1'))
-
-    return render_template('app web/ch1/app_web_ch1.html', title='App Web - Ch1',
-                           form_m1_ch1_q1=form_m1_ch1_q1)
+# App Module, Chapter 2.
+@app_module.route('/app_web/ch2', methods=['GET', 'POST'])
+@login_required
+def app_web_ch2():
+    return render_template('app web/ch2/app_web_ch2.html', title='App Web - Ch2')
 
