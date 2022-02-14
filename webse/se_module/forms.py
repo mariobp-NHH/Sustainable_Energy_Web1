@@ -364,3 +364,104 @@ class ModulsForm_m2_ch4_q10(FlaskForm):
                                 ('Around 5% for a 2°C global warming and 20% for a 5°C global warming','Around 5% for a 2°C global warming and 20% for a 5°C global warming'),
                                 ('Around 20% for a 2°C global warming and 35% for a 5°C global warming', 'Around 20% for a 2°C global warming and 35% for a 5°C global warming')])
     submit = SubmitField('Submit')
+
+#M2_Ch4: SE. Ch5. Sustainable Energy. Wind Energy
+class ModulsForm_m2_ch5_e1(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('To minimize the weight of the turbine', 'To minimize the weight of the turbine'),
+                                ('To cover as much surface as possible and simultaneously minimize the cost of production', 'To cover as much surface as possible and simultaneously minimize the cost of production'),
+                                ('To cover as much surface as possible maximizing energy production', 'To cover as much surface as possible maximizing energy production')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch5_e2(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('30%', '30%'),
+                                ('35%', '35%'),
+                                ('40%', '40%')])
+    submit = SubmitField('Submit')
+
+
+
+class ModulsForm_m2_ch5_q1(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Mass of wind that pass through an area A divided by the square of wind speed', 'Mass of wind that pass through an area A divided by the square of wind speed'),
+                                ('Mass of wind that pass through an area A multiplied by the square of wind speed', 'Mass of wind that pass through an area A multiplied by the square of wind speed'),
+                                ('Mass of wind that pass through an area A multiplied by the wind speed', 'Mass of wind that pass through an area A multiplied by the wind speed')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch5_q2(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Measures possible production', 'Measures possible production'),
+                                ('Measures actual production', 'Measures actual production'),
+                                ('Measures actual production relative to possible production', 'Measures actual production relative to possible production')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch5_q3(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('45%', '45%'),
+                                ('40%', '40%'),
+                                ('50%', '50%')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch5_q4(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('49.3%', '49.3%'),
+                                ('59.3%', '59.3%'),
+                                ('51.3%', '51.3%')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch5_q5(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('30%', '30%'),
+                                ('35%', '35%'),
+                                ('40%', '40%')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch5_q6(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('8844 GW, 1000 GW', '8844 GW, 1000 GW'),
+                                ('9944 GW, 900 GW', '9944 GW, 900 GW'),
+                                ('5044 GW, 1000 GW', '5044 GW, 1000 GW')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch5_q7(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('150 GW/yr, 25 GW/yr', '150 GW/yr, 25 GW/yr'),
+                                ('200 GW/yr, 45 GW/yr', '200 GW/yr, 45 GW/yr'),
+                                ('250 GW/yr, 40 GW/yr', '250 GW/yr, 40 GW/yr')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch5_q8(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('400-600 USD/KW, 1000-2000 USD/KW', '400-600 USD/KW, 1000-2000 USD/KW'),
+                                ('650-1000 USD/KW, 1400-2800 USD/KW', '650-1000 USD/KW, 1400-2800 USD/KW'),
+                                ('200-400 USD/KW, 900-1800 USD/KW', '200-400 USD/KW, 900-1800 USD/KW')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch5_q9(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('0.02-0.03 USD/KWh, 0.03-0.07 USD/KWh', '0.02-0.03 USD/KWh, 0.03-0.07 USD/KWh'),
+                                ('0.05-0.07 USD/KWh, 0.08-0.1 USD/KWh', '0.05-0.07 USD/KWh, 0.08-0.1 USD/KWh'),
+                                ('0.07-0.09 USD/KWh, 0.11-0.13 USD/KWh', '0.07-0.09 USD/KWh, 0.11-0.13 USD/KWh')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch5_q10(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('0.07USD/KWh', '0.07 USD/KWh'),
+                                ('0.09 USD/KWh', '0.09 USD/KWh'),
+                                ('0.12 USD/KWh', '0.12 USD/KWh')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch5_q11(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('22%-38%, 33%-40%', '22%-38%, 33%-40%'),
+                                ('32%-58%, 43%-60%', '32%-58%, 43%-60%'),
+                                ('15%-30%, 23%-33%', '15%-30%, 23%-33%')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch5_q12(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('6.06 M', '6.06 M'),
+                                ('5.06 M', '4.06 M'),
+                                ('4.06 M', '4.06 M')])
+    submit = SubmitField('Submit')
