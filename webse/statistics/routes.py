@@ -569,6 +569,34 @@ def statistics_se_ch5():
         filter(Moduls.title_ch == 'Ch5. Sustainable Energy. Wind Energy'). \
         filter(Moduls.question_option == 50). \
         order_by(Moduls.question_num.asc()).count()
+
+    incorrect_q11 = Moduls.query.filter(Moduls.question_num == 11). \
+        filter(Moduls.question_result == 0). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch5. Sustainable Energy. Wind Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    correct_q11 = Moduls.query.filter(Moduls.question_num == 11). \
+        filter(Moduls.question_result == 1). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch5. Sustainable Energy. Wind Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    incorrect_q12 = Moduls.query.filter(Moduls.question_num == 12). \
+        filter(Moduls.question_result == 0). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch5. Sustainable Energy. Wind Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    correct_q12 = Moduls.query.filter(Moduls.question_num == 12). \
+        filter(Moduls.question_result == 1). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch5. Sustainable Energy. Wind Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
     flash('Your answer has been submitted!', 'success')
     return render_template('statistics/statistics_se_ch5.html', entries=entries, correct=correct, incorrect=incorrect,
                            correct_q1=correct_q1, incorrect_q1=incorrect_q1,
@@ -580,4 +608,6 @@ def statistics_se_ch5():
                            correct_q7=correct_q7, incorrect_q7=incorrect_q7,
                            correct_q8=correct_q8, incorrect_q8=incorrect_q8,
                            correct_q9=correct_q9, incorrect_q9=incorrect_q9,
-                           correct_q10=correct_q10, incorrect_q10=incorrect_q10)
+                           correct_q10=correct_q10, incorrect_q10=incorrect_q10,
+                           correct_q11=correct_q11, incorrect_q11=incorrect_q11,
+                           correct_q12=correct_q12, incorrect_q12=incorrect_q12)
