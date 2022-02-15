@@ -112,15 +112,15 @@
         </div>
 
         <div class="container">
-            <div class="statistics_summary1_css">
+            <div class="statistics_summary3_css">
                 <div class="box">
                     <canvas id="correct_vs_incorrect_q10"></canvas>
                 </div>
                 <div class="box">
-
+                    <canvas id="correct_vs_incorrect_q11"></canvas>
                 </div>
                 <div class="box">
-
+                    <canvas id="correct_vs_incorrect_q12"></canvas>
                 </div>
             </div>
         </div>
@@ -515,6 +515,78 @@
                         title: {
                             display: true,
                                 text: "Sustainable Energy, Chapter 5, Q10",
+                                    fontSize: 20,
+                        },
+                        legend: {
+                            position: "right",
+                                labels: {
+                                fontColor: "gray"
+                            },
+                            display: true,
+                        },
+
+                        elements: {
+                            hitRadius: 3,
+                        }
+                }
+            })
+
+            let correct_vs_incorrect_chart_q11 = new Chart(correct_vs_incorrect_q11, {
+                type: 'pie',
+                data: {
+                labels: ['correct', 'incorrect'],
+                    datasets: [{
+                        label: "Correct Vs Incorrect",
+                        data: [{{correct_q11}}, {{incorrect_q11}}],
+                        backgroundColor: ['#f2935c', '#f2d95c'],
+
+                        borderWidth: 1,
+                        hoverBorderColor: "black",
+                        hoverBorderWidth: 2,
+                        hoverBackgroundColor: 'rgba(154, 245, 140)',
+                        pointHoverRadius: 5
+                    }],
+                },
+                options: {
+                        title: {
+                            display: true,
+                                text: "Sustainable Energy, Chapter 5, Q11",
+                                    fontSize: 20,
+                        },
+                        legend: {
+                            position: "right",
+                                labels: {
+                                fontColor: "gray"
+                            },
+                            display: true,
+                        },
+
+                        elements: {
+                            hitRadius: 3,
+                        }
+                }
+            })
+
+            let correct_vs_incorrect_chart_q12 = new Chart(correct_vs_incorrect_q12, {
+                type: 'pie',
+                data: {
+                labels: ['correct', 'incorrect'],
+                    datasets: [{
+                        label: "Correct Vs Incorrect",
+                        data: [{{correct_q12}}, {{incorrect_q12}}],
+                        backgroundColor: ['#f2935c', '#f2d95c'],
+
+                        borderWidth: 1,
+                        hoverBorderColor: "black",
+                        hoverBorderWidth: 2,
+                        hoverBackgroundColor: 'rgba(154, 245, 140)',
+                        pointHoverRadius: 5
+                    }],
+                },
+                options: {
+                        title: {
+                            display: true,
+                                text: "Sustainable Energy, Chapter 5, Q12",
                                     fontSize: 20,
                         },
                         legend: {
