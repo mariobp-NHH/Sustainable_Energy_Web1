@@ -24,6 +24,7 @@ from webse.chats.routes import chats
 from webse.home.routes import home
 from webse.se_module.routes import se_module
 from webse.statistics.routes import statistics
+from webse.students_apps.routes import students_apps
 from webse.users.routes import users
 
 app.register_blueprint(announcements)
@@ -33,9 +34,5 @@ app.register_blueprint(chats)
 app.register_blueprint(home)
 app.register_blueprint(se_module)
 app.register_blueprint(statistics)
+app.register_blueprint(students_apps)
 app.register_blueprint(users)
- 
-         
-       
-       
-       
