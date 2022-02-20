@@ -24,6 +24,199 @@
      Afternon Theme 7:
      at-7: #5fd9cd
      */
+     /****************************************/
+      /*Container section developers 3 boxes*/
+      .section_developers3_css {
+          display: flex;
+          align-items: start;
+          justify-content: space-between;
+      }
+      .section_developers3_css .box {
+          flex: 1;
+          background: #f2e3b6;
+          color: #343a40;
+          border-radius: 10px;
+          margin: 20px 10px;
+          padding: 15px 20px;
+          text-align:center;
+      }
+
+      /*Container developers 2 boxes*/
+      .section_developers2_css {
+          display: flex;
+          align-items: start;
+          justify-content: space-between;
+      }     /*color=mt-2*/
+      .section_developers2_css .box {
+          flex: 1;
+          background: #f2e3b6;
+          color: #fff;
+          border-radius: 10px;
+          margin: 20px 10px;
+          padding: 15px 20px;
+      }
+      .section_developers2_css .box:nth-of-type(1) {
+          flex-grow:1;
+          background: #f2e3b6;
+          color: #fff;
+          border-radius: 10px;
+          margin: 20px 10px;
+          padding: 15px 20px;
+          text-align:left;
+      }
+      .section_developers2_css .box:nth-of-type(2) {
+          flex-grow:1;
+          background: #f2c1b6;
+          color: #fff;
+          border-radius: 10px;
+          margin: 20px 10px;
+          padding: 15px 20px;
+          text-align:center;
+      }
+      .section_developers3_css .box:nth-of-type(3) {
+          flex-grow:1;
+          background: #fff;
+          color: #fff;
+          border-radius: 10px;
+          margin: 20px 10px;
+          padding: 15px 20px;
+          text-align:left;
+      }
+
+      .container_buttons_links_section_developers {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap:wrap;
+      }
+      .container_buttons_links_section_developers a:hover {
+        color: #f2e3b6;
+      }
+
+        /* App Calculator Entry */
+      /*Container section select entry*/
+      .section_calculator_students_entry_css {
+          display: flex;
+          align-items: start;
+          justify-content: space-between;
+      }
+      .section_calculator_students_entry_css .box {
+          flex: 1;
+          background: #f27979 ;
+          color: #343a40;
+          border-radius: 10px;
+          margin: 20px 10px;
+          padding: 15px 20px;
+          text-align:center;
+      }
+      .section_calculator_students_entry_css .box:nth-of-type(1) {
+          flex-grow:1;
+          background: #fff ;
+          color: #fff;
+          border-radius: 10px;
+          margin: 0px 0px;
+          padding: 0px 0px;
+          text-align:left;
+      }
+      .section_calculator_students_entry_css .box:nth-of-type(2) {
+          flex-grow:5;
+          background: #f27979 ;
+          color: #343a40;
+          border-radius: 10px;
+          margin: 20px 10px;
+          padding: 15px 20px;
+          text-align:center;
+      }
+      .section_calculator_students_entry_css .box:nth-of-type(3) {
+          flex-grow:1;
+          background: #fff;
+          color: #fff;
+          border-radius: 10px;
+          margin: 0px 0px;
+          padding: 0px 0px;
+          text-align:left;
+      }
+
+      /* App Calculator Output */
+      /*Container display output*/
+      .section_calculator_students_output_css {
+          display: flex;
+          align-items: start;
+          justify-content: space-between;
+      }
+      .section_calculator_students_output_css .box {
+          flex: 1;
+          background: #f27979 ;
+          color: #343a40;
+          border-radius: 10px;
+          margin: 20px 10px;
+          padding: 15px 20px;
+          text-align:center;
+      }
+      .section_calculator_students_output_css .box:nth-of-type(1) {
+          flex-grow:6;
+          background: #f27979 ;
+          color: #343a40;
+          border-radius: 10px;
+          margin: 20px 10px;
+          padding: 15px 20px;
+          text-align:center;
+      }
+      .section_calculator_students_output_css .box:nth-of-type(2) {
+          flex-grow:4;
+          background: #f27979 ;
+          color: #343a40;
+          border-radius: 10px;
+          margin: 20px 10px;
+          padding: 15px 20px;
+          text-align:center;
+      }
+
+      /* App Kilometers and fuel type */
+      .section_km_fuel_css {
+          display: flex;
+          align-items: start;
+          justify-content: space-between;
+      }
+      .section_km_fuel_css .box {
+          flex: 1;
+          background: #f27979 ;
+          color: #343a40;
+          border-radius: 10px;
+          margin: 10px 10px;
+          padding: 2px 2px;
+          text-align:center;
+      }
+      .section_km_fuel_css .box:nth-of-type(1) {
+          flex-grow:1;
+          background: #f27979 ;
+          color: #343a40;
+          border-radius: 10px;
+          margin: 10px 10px;
+          padding: 2px 2px;
+          text-align:left;
+      }
+      .section_km_fuel_css .box:nth-of-type(2) {
+          flex-grow:1;
+          background: #f27979 ;
+          color: #343a40;
+          border-radius: 10px;
+          margin: 10px 10px;
+          padding: 2px 2px;
+          text-align:center;
+      }
+      .section_km_fuel_css .box:nth-of-type(3) {
+          flex-grow:1;
+          background: #f27979 ;
+          color: #343a40;
+          border-radius: 10px;
+          margin: 10px 10px;
+          padding: 2px 2px;
+          text-align:center;
+      }
+
+
+      /*******************************************/
 
     /*****************************************/
     /***   App Calculator   at-7:#5fd9cd   ***/
