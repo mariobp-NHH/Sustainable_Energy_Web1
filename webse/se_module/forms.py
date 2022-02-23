@@ -326,10 +326,10 @@ class ModulsForm_m2_ch4_q5(FlaskForm):
 class ModulsForm_m2_ch4_q6(FlaskForm):
     type = SelectField('Type', validators=[DataRequired()],
                        choices=[(
-                                '1, electric vehicles (EV); 2, biofuels heavy freight, for road, aviation and marine transport',
-                                '1, electric vehicles (EV); 2, biofuels heavy freight, for road, aviation and marine transport'),
-                                ('1, hydrogen for vehicles, and heavy freight; 2, biofuels for road, aviation and marine transport',
-                                 '1, hydrogen for vehicles, and heavy freight; 2, biofuels for road, aviation and marine transport'),
+                                '1, Electric vehicles (EV); 2, biofuels heavy freight, for road, aviation and marine transport',
+                                '1, Electric vehicles (EV); 2, biofuels heavy freight, for road, aviation and marine transport'),
+                                ('1, Hydrogen for vehicles, and heavy freight; 2, biofuels for road, aviation and marine transport',
+                                 '1, Hydrogen for vehicles, and heavy freight; 2, biofuels for road, aviation and marine transport'),
                                 ('1, EV; 2, hydrogen for heavy freight; 3, biofuels for road, aviation and marine transport',
                                  '1, EV; 2, hydrogen for heavy freight; 3, biofuels for road, aviation and marine transport')])
     submit = SubmitField('Submit')
@@ -365,7 +365,7 @@ class ModulsForm_m2_ch4_q10(FlaskForm):
                                 ('Around 20% for a 2°C global warming and 35% for a 5°C global warming', 'Around 20% for a 2°C global warming and 35% for a 5°C global warming')])
     submit = SubmitField('Submit')
 
-#M2_Ch4: SE. Ch5. Sustainable Energy. Wind Energy
+#M2_Ch5: SE. Ch5. Sustainable Energy. Wind Energy
 class ModulsForm_m2_ch5_e1(FlaskForm):
     type = SelectField('Type', validators=[DataRequired()],
                        choices=[('To minimize the weight of the turbine', 'To minimize the weight of the turbine'),
@@ -464,4 +464,105 @@ class ModulsForm_m2_ch5_q12(FlaskForm):
                        choices=[('6.06 M', '6.06 M'),
                                 ('5.06 M', '4.06 M'),
                                 ('4.06 M', '4.06 M')])
+    submit = SubmitField('Submit')
+
+#M2_Ch6: SE. Ch6. Sustainable Energy. Solar Energy
+class ModulsForm_m2_ch6_e1(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('25%', '25%'),
+                                ('35%', '35%'),
+                                ('30%', '30%')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch6_e2(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('From 0.37 USD/KWh to 0.085 USD/KWh', 'From 0.37 USD/KWh to 0.085 USD/KWh'),
+                                ('From 0.12 USD/KWh to 0.09 USD/KWh', 'From 0.12 USD/KWh to 0.09 USD/KWh'),
+                                ('From 0.17 USD/KWh to 0.095 USD/KWh', 'From 0.17 USD/KWh to 0.095 USD/KWh')])
+    submit = SubmitField('Submit')
+
+
+
+class ModulsForm_m2_ch6_q1(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('The cost has dropped from 0.5 $/KWh to 0.1-0.2 $/KWh', 'The cost has dropped from 0.5 $/KWh to 0.1-0.2 $/KWh'),
+                                ('The cost has dropped from 0.5 $/KWh to 0.01-0.02 $/KWh', 'The cost has dropped from 0.5 $/KWh to 0.01-0.02 $/KWh'),
+                                ('The cost has dropped from 0.5 $/KWh to 0.3-0.4 $/KWh', 'The cost has dropped from 0.5 $/KWh to 0.3-0.4 $/KWh')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch6_q2(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('The cost has dropped from 1160 $/KWh to 576 $/KWh', 'The cost has dropped from 1160 $/KWh to 576 $/KWh'),
+                                ('The cost has dropped from 1160 $/KWh to 476 $/KWh', 'The cost has dropped from 1160 $/KWh to 476 $/KWh'),
+                                ('The cost has dropped from 1160 $/KWh to 176 $/KWh', 'The cost has dropped from 1160 $/KWh to 176 $/KWh')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch6_q3(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Non-concentrating collectors are used mainly at home, while concentrating collectors are used mainly in power plants', 'Non-concentrating collectors are used mainly at home, while concentrating collectors are used mainly in power plants'),
+                                ('Both are mainly used at home', 'Both are mainly used at home'),
+                                ('Both are mainly used in power plants', 'Both are mainly used in power plants')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch6_q4(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('CSP is mainly used in the industry, while CST is mainly used in generation', 'CSP is mainly used in the industry, while CST is mainly used in generation'),
+                                ('CST is mainly used in the industry, while CSP is mainly used in generation', 'CST is mainly used in the industry, while CSP is mainly used in generation'),
+                                ('Both are mainly used in the industry', 'Both are mainly used in the industry')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch6_q5(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('0.26', '0.26'),
+                                ('0.36', '0.36'),
+                                ('0.46', '0.46')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch6_q6(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('0.1', '0.1'),
+                                ('0.03', '0.03'),
+                                ('0.15', '0.15')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch6_q7(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Making the N-layer thick and heavily doped, and making the P-layer thick and heavily doped', 'Making the N-layer thick and heavily doped, and making the P-layer thick and heavily doped'),
+                                ('Making the N-layer thin and heavily doped, and making the P-layer thick and heavily doped', 'Making the N-layer thin and heavily doped, and making the P-layer thick and heavily doped'),
+                                ('Making the N-layer thin and heavily doped, and making the P-layer thick and poorly doped', 'Making the N-layer thin and heavily doped, and making the P-layer thick and poorly doped')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch6_q8(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('The combination of Amps and Ohms that maximize Watts', 'The combination of Amps and Ohms that maximize Watts'),
+                                ('The combination of Amps and Volts that maximize Watts', 'The combination of Amps and Volts that maximize Watts'),
+                                ('The combination of Ohms and Volts that maximize Watts', 'The combination of Ohms and Volts that maximize Watts')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch6_q9(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('7000 GW', '7000 GW'),
+                                ('7500 GW', '7500 GW'),
+                                ('8500 GW', '8500 GW')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch6_q10(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Asia 3000 GW, North-America 1300 GW, Europe 1200 GW, Africa 1000 GW', 'Asia 3000 GW, North-America 1300 GW, Europe 1200 GW, Africa 1000 GW'),
+                                ('Asia 4800 GW, North-America 1720 GW, Europe 890 GW, Africa 670 GW', 'Asia 4800 GW, North-America 1720 GW, Europe 890 GW, Africa 670 GW'),
+                                ('Asia 3500 GW, North-America 100 GW, Europe 1200 GW, Africa 1500 GW', 'Asia 3500 GW, North-America 100 GW, Europe 1200 GW, Africa 1500 GW')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch6_q11(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('From 4621 USD/KW in 2010 to 481-165 USD/KW in 2050', 'From 4621 USD/KW in 2010 to 481-165 USD/KW in 2050'),
+                                ('From 3000 USD/KW in 2010 to 1050-850 USD/KW in 2050', 'From 3000 USD/KW in 2010 to 1050-850 USD/KW in 2050'),
+                                ('From 3500 USD/KW in 2010 to 1100-900 USD/KW in 2050', 'From 3500 USD/KW in 2010 to 1100-900 USD/KW in 2050')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch6_q12(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('0.12 Euros/KWh', '0.12 Euros/KWh'),
+                                ('0.16 Euros/KWh', '0.16 Euros/KWh'),
+                                ('0.1 Euros/KWh', '0.1 Euros/KWh')])
     submit = SubmitField('Submit')
