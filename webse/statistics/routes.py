@@ -611,3 +611,208 @@ def statistics_se_ch5():
                            correct_q10=correct_q10, incorrect_q10=incorrect_q10,
                            correct_q11=correct_q11, incorrect_q11=incorrect_q11,
                            correct_q12=correct_q12, incorrect_q12=incorrect_q12)
+
+@statistics.route('/statistics/se_ch6', methods=['GET', 'POST'])
+@login_required
+def statistics_se_ch6():
+    entries = Moduls.query.filter_by(author=current_user). \
+        filter(Moduls.title_mo=='Sustainable Energy'). \
+        filter(Moduls.title_ch=='Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option==50). \
+        order_by(Moduls.question_num.asc()).all()
+
+    incorrect = Moduls.query.filter_by(author=current_user). \
+        filter(Moduls.question_result==0). \
+        filter(Moduls.title_mo=='Sustainable Energy'). \
+        filter(Moduls.title_ch=='Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option==50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    correct = Moduls.query.filter_by(author=current_user). \
+        filter(Moduls.question_result==1). \
+        filter(Moduls.title_mo=='Sustainable Energy'). \
+        filter(Moduls.title_ch=='Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option==50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    incorrect_q1 = Moduls.query.filter(Moduls.question_num == 1). \
+        filter(Moduls.question_result == 0). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    correct_q1 = Moduls.query.filter(Moduls.question_num == 1). \
+        filter(Moduls.question_result == 1). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    incorrect_q2 = Moduls.query.filter(Moduls.question_num == 2). \
+        filter(Moduls.question_result == 0). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    correct_q2 = Moduls.query.filter(Moduls.question_num == 2). \
+        filter(Moduls.question_result == 1). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    incorrect_q3 = Moduls.query.filter(Moduls.question_num == 3). \
+        filter(Moduls.question_result == 0). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    correct_q3 = Moduls.query.filter(Moduls.question_num == 3). \
+        filter(Moduls.question_result == 1). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    incorrect_q4 = Moduls.query.filter(Moduls.question_num == 4). \
+        filter(Moduls.question_result == 0). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    correct_q4 = Moduls.query.filter(Moduls.question_num == 4). \
+        filter(Moduls.question_result == 1). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    incorrect_q5 = Moduls.query.filter(Moduls.question_num == 5). \
+        filter(Moduls.question_result == 0). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    correct_q5 = Moduls.query.filter(Moduls.question_num == 5). \
+        filter(Moduls.question_result == 1). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    incorrect_q6 = Moduls.query.filter(Moduls.question_num == 6). \
+        filter(Moduls.question_result == 0). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    correct_q6 = Moduls.query.filter(Moduls.question_num == 6). \
+        filter(Moduls.question_result == 1). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    incorrect_q7 = Moduls.query.filter(Moduls.question_num == 7). \
+        filter(Moduls.question_result == 0). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    correct_q7 = Moduls.query.filter(Moduls.question_num == 7). \
+        filter(Moduls.question_result == 1). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    incorrect_q8 = Moduls.query.filter(Moduls.question_num == 8). \
+        filter(Moduls.question_result == 0). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    correct_q8 = Moduls.query.filter(Moduls.question_num == 8). \
+        filter(Moduls.question_result == 1). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    incorrect_q9 = Moduls.query.filter(Moduls.question_num == 9). \
+        filter(Moduls.question_result == 0). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    correct_q9 = Moduls.query.filter(Moduls.question_num == 9). \
+        filter(Moduls.question_result == 1). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    incorrect_q10 = Moduls.query.filter(Moduls.question_num == 10). \
+        filter(Moduls.question_result == 0). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    correct_q10 = Moduls.query.filter(Moduls.question_num == 10). \
+        filter(Moduls.question_result == 1). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    incorrect_q11 = Moduls.query.filter(Moduls.question_num == 11). \
+        filter(Moduls.question_result == 0). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    correct_q11 = Moduls.query.filter(Moduls.question_num == 11). \
+        filter(Moduls.question_result == 1). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    incorrect_q12 = Moduls.query.filter(Moduls.question_num == 12). \
+        filter(Moduls.question_result == 0). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+
+    correct_q12 = Moduls.query.filter(Moduls.question_num == 12). \
+        filter(Moduls.question_result == 1). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 50). \
+        order_by(Moduls.question_num.asc()).count()
+    flash('Your answer has been submitted!', 'success')
+    return render_template('statistics/statistics_se_ch6.html', entries=entries, correct=correct, incorrect=incorrect,
+                           correct_q1=correct_q1, incorrect_q1=incorrect_q1,
+                           correct_q2=correct_q2, incorrect_q2=incorrect_q2,
+                           correct_q3=correct_q3, incorrect_q3=incorrect_q3,
+                           correct_q4=correct_q4, incorrect_q4=incorrect_q4,
+                           correct_q5=correct_q5, incorrect_q5=incorrect_q5,
+                           correct_q6=correct_q6, incorrect_q6=incorrect_q6,
+                           correct_q7=correct_q7, incorrect_q7=incorrect_q7,
+                           correct_q8=correct_q8, incorrect_q8=incorrect_q8,
+                           correct_q9=correct_q9, incorrect_q9=incorrect_q9,
+                           correct_q10=correct_q10, incorrect_q10=incorrect_q10,
+                           correct_q11=correct_q11, incorrect_q11=incorrect_q11,
+                           correct_q12=correct_q12, incorrect_q12=incorrect_q12)
