@@ -17,6 +17,10 @@ from webse.se_module.forms import ModulsForm_m2_ch5_e1, ModulsForm_m2_ch5_e2, Mo
     ModulsForm_m2_ch5_q2, ModulsForm_m2_ch5_q3
 from webse.se_module.forms import ModulsForm_m2_ch5_q4, ModulsForm_m2_ch5_q5, ModulsForm_m2_ch5_q6, \
     ModulsForm_m2_ch5_q7, ModulsForm_m2_ch5_q8, ModulsForm_m2_ch5_q9, ModulsForm_m2_ch5_q10, ModulsForm_m2_ch5_q11, ModulsForm_m2_ch5_q12
+from webse.se_module.forms import ModulsForm_m2_ch6_e1, ModulsForm_m2_ch6_e2, ModulsForm_m2_ch6_q1, \
+    ModulsForm_m2_ch6_q2, ModulsForm_m2_ch6_q3
+from webse.se_module.forms import ModulsForm_m2_ch6_q4, ModulsForm_m2_ch6_q5, ModulsForm_m2_ch6_q6, \
+    ModulsForm_m2_ch6_q7, ModulsForm_m2_ch6_q8, ModulsForm_m2_ch6_q9, ModulsForm_m2_ch6_q10, ModulsForm_m2_ch6_q11, ModulsForm_m2_ch6_q12
 from webse.models import Moduls, Chat
 from flask_login import login_user, current_user, logout_user, login_required
 from test_table import testdf
@@ -1941,3 +1945,444 @@ def se_web_ch5_ex2_chat_query():
     return render_template('se web/ch5/se_web_ch5_ex2_chat_query.html', title='SE Web - ch5 - ex2',
                            chats=chats, legend='Sustainable Energy, Chapter 5, Exercise 2', func=read_image)
 
+##########################################
+## Sustainable Energy Module, Chapter 6 ##
+##########################################
+@se_module.route('/sustainable_energy_web/ch6', methods=['GET', 'POST'])
+@login_required
+def se_web_ch6():
+    form_m2_ch6_q1 = ModulsForm_m2_ch6_q1()
+    form_m2_ch6_q2 = ModulsForm_m2_ch6_q2()
+    form_m2_ch6_q3 = ModulsForm_m2_ch6_q3()
+    form_m2_ch6_q4 = ModulsForm_m2_ch6_q4()
+    form_m2_ch6_q5 = ModulsForm_m2_ch6_q5()
+    form_m2_ch6_q6 = ModulsForm_m2_ch6_q6()
+    form_m2_ch6_q7 = ModulsForm_m2_ch6_q7()
+    form_m2_ch6_q8 = ModulsForm_m2_ch6_q8()
+    form_m2_ch6_q9 = ModulsForm_m2_ch6_q9()
+    form_m2_ch6_q10 = ModulsForm_m2_ch6_q10()
+    form_m2_ch6_q11 = ModulsForm_m2_ch6_q11()
+    form_m2_ch6_q12 = ModulsForm_m2_ch6_q12()
+
+    if form_m2_ch6_q1.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'Sustainable Energy'). \
+            filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+            filter(Moduls.question_num == 1).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch6_q1.type.data, author=current_user)
+        if moduls.question_str == 'The cost has dropped from 0.5 $/KWh to 0.01-0.02 $/KWh':
+            moduls.question_result = 1
+        else:
+            moduls.question_result = 0
+        moduls.title_mo = 'Sustainable Energy'
+        moduls.title_ch = 'Ch6.  Sustainable Energy. Solar Energy'
+        moduls.question_num = 1
+        moduls.question_option = 50
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('se_module.se_web_ch6'))
+
+    if form_m2_ch6_q2.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'Sustainable Energy'). \
+            filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+            filter(Moduls.question_num == 2).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch6_q2.type.data, author=current_user)
+        if moduls.question_str == 'The cost has dropped from 1160 $/KWh to 176 $/KWh':
+            moduls.question_result = 1
+        else:
+            moduls.question_result = 0
+        moduls.title_mo = 'Sustainable Energy'
+        moduls.title_ch = 'Ch6.  Sustainable Energy. Solar Energy'
+        moduls.question_num = 2
+        moduls.question_option = 50
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('se_module.se_web_ch6'))
+
+    if form_m2_ch6_q3.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'Sustainable Energy'). \
+            filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+            filter(Moduls.question_num == 3).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch6_q3.type.data, author=current_user)
+        if moduls.question_str == 'Non-concentrating collectors are used mainly at home, while concentrating collectors are used mainly in power plants':
+            moduls.question_result = 1
+        else:
+            moduls.question_result = 0
+        moduls.title_mo = 'Sustainable Energy'
+        moduls.title_ch = 'Ch6.  Sustainable Energy. Solar Energy'
+        moduls.question_num = 3
+        moduls.question_option = 50
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('se_module.se_web_ch6'))
+
+    if form_m2_ch6_q4.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'Sustainable Energy'). \
+            filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+            filter(Moduls.question_num == 4).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch6_q2.type.data, author=current_user)
+        if moduls.question_str == 'CST is mainly used in the industry, while CSP is mainly used in generation':
+            moduls.question_result = 1
+        else:
+            moduls.question_result = 0
+        moduls.title_mo = 'Sustainable Energy'
+        moduls.title_ch = 'Ch6.  Sustainable Energy. Solar Energy'
+        moduls.question_num = 4
+        moduls.question_option = 50
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('se_module.se_web_ch6'))
+
+    if form_m2_ch6_q5.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'Sustainable Energy'). \
+            filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+            filter(Moduls.question_num == 5).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch6_q5.type.data, author=current_user)
+        if moduls.question_str == '0.26':
+            moduls.question_result = 1
+        else:
+            moduls.question_result = 0
+        moduls.title_mo = 'Sustainable Energy'
+        moduls.title_ch = 'Ch6.  Sustainable Energy. Solar Energy'
+        moduls.question_num = 5
+        moduls.question_option = 50
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('se_module.se_web_ch6'))
+
+    if form_m2_ch6_q6.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'Sustainable Energy'). \
+            filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+            filter(Moduls.question_num == 6).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch6_q6.type.data, author=current_user)
+        if moduls.question_str == '0.03':
+            moduls.question_result = 1
+        else:
+            moduls.question_result = 0
+        moduls.title_mo = 'Sustainable Energy'
+        moduls.title_ch = 'Ch6.  Sustainable Energy. Solar Energy'
+        moduls.question_num = 6
+        moduls.question_option = 50
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('se_module.se_web_ch6'))
+
+    if form_m2_ch6_q7.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'Sustainable Energy'). \
+            filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+            filter(Moduls.question_num == 7).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch6_q7.type.data, author=current_user)
+        if moduls.question_str == 'Making the N-layer thin and heavily doped, and making the P-layer thick and poorly doped':
+            moduls.question_result = 1
+        else:
+            moduls.question_result = 0
+        moduls.title_mo = 'Sustainable Energy'
+        moduls.title_ch = 'Ch6.  Sustainable Energy. Solar Energy'
+        moduls.question_num = 7
+        moduls.question_option = 50
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('se_module.se_web_ch6'))
+
+    if form_m2_ch6_q8.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'Sustainable Energy'). \
+            filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+            filter(Moduls.question_num == 8).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch6_q8.type.data, author=current_user)
+        if moduls.question_str == 'The combination of Amps and Volts that maximize Watts':
+            moduls.question_result = 1
+        else:
+            moduls.question_result = 0
+        moduls.title_mo = 'Sustainable Energy'
+        moduls.title_ch = 'Ch6.  Sustainable Energy. Solar Energy'
+        moduls.question_num = 8
+        moduls.question_option = 50
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('se_module.se_web_ch6'))
+
+    if form_m2_ch6_q9.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'Sustainable Energy'). \
+            filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+            filter(Moduls.question_num == 9).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch6_q9.type.data, author=current_user)
+        if moduls.question_str == '8500 GW':
+            moduls.question_result = 1
+        else:
+            moduls.question_result = 0
+        moduls.title_mo = 'Sustainable Energy'
+        moduls.title_ch = 'Ch6.  Sustainable Energy. Solar Energy'
+        moduls.question_num = 9
+        moduls.question_option = 50
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('se_module.se_web_ch6'))
+
+    if form_m2_ch6_q10.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'Sustainable Energy'). \
+            filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+            filter(Moduls.question_num == 9).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch6_q10.type.data, author=current_user)
+        if moduls.question_str == 'Asia 4800 GW, North-America 1720 GW, Europe 890 GW, Africa 670 GW':
+            moduls.question_result = 1
+        else:
+            moduls.question_result = 0
+        moduls.title_mo = 'Sustainable Energy'
+        moduls.title_ch = 'Ch6.  Sustainable Energy. Solar Energy'
+        moduls.question_num = 9
+        moduls.question_option = 50
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('se_module.se_web_ch6'))
+
+    if form_m2_ch6_q11.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'Sustainable Energy'). \
+            filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+            filter(Moduls.question_num == 11).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch6_q11.type.data, author=current_user)
+        if moduls.question_str == 'From 4621 USD/KW in 2010 to 481-165 USD/KW in 2050':
+            moduls.question_result = 1
+        else:
+            moduls.question_result = 0
+        moduls.title_mo = 'Sustainable Energy'
+        moduls.title_ch = 'Ch6.  Sustainable Energy. Solar Energy'
+        moduls.question_num = 11
+        moduls.question_option = 50
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('se_module.se_web_ch6'))
+
+    if form_m2_ch6_q12.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'Sustainable Energy'). \
+            filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+            filter(Moduls.question_num == 12).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch6_q12.type.data, author=current_user)
+        if moduls.question_str == '0.16 Euros/KWh':
+            moduls.question_result = 1
+        else:
+            moduls.question_result = 0
+        moduls.title_mo = 'Sustainable Energy'
+        moduls.title_ch = 'Ch6.  Sustainable Energy. Solar Energy'
+        moduls.question_num = 12
+        moduls.question_option = 50
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('se_module.se_web_ch6'))
+    return render_template('se web/ch6/se_web_ch6.html', title='SE Web - ch6',
+                           form_m2_ch6_q1=form_m2_ch6_q1, form_m2_ch6_q2=form_m2_ch6_q2,
+                           form_m2_ch6_q3=form_m2_ch6_q3, form_m2_ch6_q4=form_m2_ch6_q4,
+                           form_m2_ch6_q5=form_m2_ch6_q5, form_m2_ch6_q6=form_m2_ch6_q6,
+                           form_m2_ch6_q7=form_m2_ch6_q7, form_m2_ch6_q8=form_m2_ch6_q8,
+                           form_m2_ch6_q9=form_m2_ch6_q9, form_m2_ch6_q10=form_m2_ch6_q10,
+                           form_m2_ch6_q11=form_m2_ch6_q11, form_m2_ch6_q12=form_m2_ch6_q12)
+
+
+# SE, ch6, Exercise 1.
+@se_module.route('/sustainable_energy_web/ch6/ex1', methods=['GET', 'POST'])
+@login_required
+def se_web_ch6_ex1():
+    return render_template('se web/ch6/se_web_ch6_ex1.html', title='SE Web - ch6 - Ex1')
+
+
+@se_module.route('/sustainable_energy_web/ch6/ex1/questionnaire', methods=['GET', 'POST'])
+@login_required
+def se_web_ch6_ex1_questionnaire():
+    form_m2_ch6_e1 = ModulsForm_m2_ch6_e1()
+
+    if form_m2_ch6_e1.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'Sustainable Energy'). \
+            filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+            filter(Moduls.question_num == 11).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch6_e1.type.data, author=current_user)
+        if moduls.question_str == '25%':
+            moduls.question_option = 1
+        elif moduls.question_str == '35%':
+            moduls.question_option = 2
+        else:
+            moduls.question_option = 3
+        moduls.title_mo = 'Sustainable Energy'
+        moduls.title_ch = 'Ch6.  Sustainable Energy. Solar Energy'
+        moduls.question_num = 11
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('se_module.se_web_ch6_ex1_questionnaire'))
+    return render_template('se web/ch6/se_web_ch6_ex1_questionnaire.html', title='SE Web - ch6 - Ex1',
+                           form_m2_ch6_e1=form_m2_ch6_e1)
+
+
+@se_module.route('/sustainable_energy_web/ch6/ex1/questionnaire/refresh', methods=['GET', 'POST'])
+@login_required
+def se_web_ch6_ex1_questionnaire_refresh():
+    form_m2_ch6_e1 = ModulsForm_m2_ch6_e1()
+    option_1 = Moduls.query.filter(Moduls.question_num == 11). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 1). \
+        order_by(Moduls.question_num.asc()).count()
+
+    option_2 = Moduls.query.filter(Moduls.question_num == 11). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 2). \
+        order_by(Moduls.question_num.asc()).count()
+
+    option_3 = Moduls.query.filter(Moduls.question_num == 11). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 3). \
+        order_by(Moduls.question_num.asc()).count()
+    return render_template('se web/ch6/se_web_ch6_ex1_questionnaire.html', title='SE Web - ch6 - Ex1',
+                           option_1=option_1, option_2=option_2, option_3=option_3,
+                           form_m2_ch6_e1=form_m2_ch6_e1)
+
+
+@se_module.route('/sustainable_energy_web/ch6/ex1/chat', methods=['GET', 'POST'])
+@login_required
+def se_web_ch6_ex1_chat():
+    form = ChatFormExercise()
+    if form.validate_on_submit():
+        chat = Chat(title='Exercise 1', content=form.content.data, author=current_user,
+                    chat_module='SE_ch6_ex1',
+                    chat_group='Exercise 1')
+        db.session.add(chat)
+        db.session.commit()
+        flash('Your chat has been created!', 'success')
+        return redirect(url_for('se_module.se_web_ch6_ex1_chat_query'))
+    return render_template('se web/ch6/se_web_ch6_ex1_chat_create.html', title='SE Web - Ch6 - Ex1',
+                           form=form, legend='Sustainable Energy, Chapter 6, Exercise 1')
+
+
+@se_module.route('/sustainable_energy_web/ch6/ex1/chat/query', methods=['GET', 'POST'])
+@login_required
+def se_web_ch6_ex1_chat_query():
+    page = request.args.get('page', 1, type=int)
+    chats = Chat.query.filter(Chat.chat_module == 'SE_ch6_ex1').order_by(Chat.date_posted.desc()).paginate(page=page,
+                                                                                                           per_page=4)
+    return render_template('se web/ch6/se_web_ch6_ex1_chat_query.html', title='SE Web - ch6 - Ex1',
+                           chats=chats, legend='Sustainable Energy, Chapter 6, Exercise 1', func=read_image)
+
+
+# SE, ch6, Exercise 2.
+@se_module.route('/sustainable_energy_web/ch6/ex2', methods=['GET', 'POST'])
+@login_required
+def se_web_ch6_ex2():
+    return render_template('se web/ch6/se_web_ch6_ex2.html', title='SE Web - ch6 - ex2')
+
+
+@se_module.route('/sustainable_energy_web/ch6/ex2/questionnaire', methods=['GET', 'POST'])
+@login_required
+def se_web_ch6_ex2_questionnaire():
+    form_m2_ch6_e2 = ModulsForm_m2_ch6_e2()
+
+    if form_m2_ch6_e2.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'Sustainable Energy'). \
+            filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+            filter(Moduls.question_num == 11).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch6_e2.type.data, author=current_user)
+        if moduls.question_str == 'From 0.37 USD/KWh to 0.085 USD/KWh':
+            moduls.question_option = 1
+        elif moduls.question_str == 'From 0.12 USD/KWh to 0.09 USD/KWh':
+            moduls.question_option = 2
+        else:
+            moduls.question_option = 3
+        moduls.title_mo = 'Sustainable Energy'
+        moduls.title_ch = 'Ch6.  Sustainable Energy. Solar Energy'
+        moduls.question_num = 11
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('se_module.se_web_ch6_ex2_questionnaire'))
+    return render_template('se web/ch6/se_web_ch6_ex2_questionnaire.html', title='SE Web - ch6 - ex2',
+                           form_m2_ch6_e2=form_m2_ch6_e2)
+
+
+@se_module.route('/sustainable_energy_web/ch6/ex2/questionnaire/refresh', methods=['GET', 'POST'])
+@login_required
+def se_web_ch6_ex2_questionnaire_refresh():
+    form_m2_ch6_e2 = ModulsForm_m2_ch6_e2()
+    option_1 = Moduls.query.filter(Moduls.question_num == 11). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 1). \
+        order_by(Moduls.question_num.asc()).count()
+
+    option_2 = Moduls.query.filter(Moduls.question_num == 11). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 2). \
+        order_by(Moduls.question_num.asc()).count()
+
+    option_3 = Moduls.query.filter(Moduls.question_num == 11). \
+        filter(Moduls.title_mo == 'Sustainable Energy'). \
+        filter(Moduls.title_ch == 'Ch6.  Sustainable Energy. Solar Energy'). \
+        filter(Moduls.question_option == 3). \
+        order_by(Moduls.question_num.asc()).count()
+    return render_template('se web/ch6/se_web_ch6_ex2_questionnaire.html', title='SE Web - ch6 - ex2',
+                           option_1=option_1, option_2=option_2, option_3=option_3,
+                           form_m2_ch6_e2=form_m2_ch6_e2)
+
+
+@se_module.route('/sustainable_energy_web/ch6/ex2/chat', methods=['GET', 'POST'])
+@login_required
+def se_web_ch6_ex2_chat():
+    form = ChatFormExercise()
+    if form.validate_on_submit():
+        chat = Chat(title='Exercise 2', content=form.content.data, author=current_user,
+                    chat_module='SE_ch6_ex2',
+                    chat_group='Exercise 1')
+        db.session.add(chat)
+        db.session.commit()
+        flash('Your chat has been created!', 'success')
+        return redirect(url_for('se_module.se_web_ch6_ex2_chat_query'))
+    return render_template('se web/ch6/se_web_ch6_ex2_chat_create.html', title='SE Web - ch6 - ex2',
+                           form=form, legend='Sustainable Energy, Chapter 6, Exercise 2')
+
+
+@se_module.route('/sustainable_energy_web/ch6/ex2/chat/query', methods=['GET', 'POST'])
+@login_required
+def se_web_ch6_ex2_chat_query():
+    page = request.args.get('page', 1, type=int)
+    chats = Chat.query.filter(Chat.chat_module == 'SE_ch6_ex2').order_by(Chat.date_posted.desc()).paginate(page=page,
+                                                                                                           per_page=4)
+    return render_template('se web/ch6/se_web_ch6_ex2_chat_query.html', title='SE Web - ch6 - ex2',
+                           chats=chats, legend='Sustainable Energy, Chapter 6, Exercise 2', func=read_image)
