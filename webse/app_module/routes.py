@@ -34,3 +34,9 @@ def app_web_ch1():
 def app_web_ch2():
     return render_template('app web/ch2/app_web_ch2.html', title='App Web - Ch2')
 
+# App Module, Chapter 3.
+@app_module.route('/app_web/ch3', methods=['GET', 'POST'])
+@login_required
+def app_web_ch3():
+    return render_template('app web/ch3/app_web_ch3.html', title='App Web - Ch3')
+
