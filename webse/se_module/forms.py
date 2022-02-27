@@ -499,7 +499,7 @@ class ModulsForm_m2_ch6_q2(FlaskForm):
 
 class ModulsForm_m2_ch6_q3(FlaskForm):
     type = SelectField('Type', validators=[DataRequired()],
-                       choices=[('Non-concentrating collectors are used mainly at home, while concentrating collectors are used mainly in power plants', 'Non-concentrating collectors are used mainly at home, while concentrating collectors are used mainly in power plants'),
+                       choices=[('Non-concentrating collectors at home, while concentrating collectors in power plants', 'Non-concentrating collectors at home, while concentrating collectors in power plants'),
                                 ('Both are mainly used at home', 'Both are mainly used at home'),
                                 ('Both are mainly used in power plants', 'Both are mainly used in power plants')])
     submit = SubmitField('Submit')
