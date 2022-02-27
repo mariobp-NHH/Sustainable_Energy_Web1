@@ -139,14 +139,11 @@
                     of this energy to decarbonize the economy.
                 </p>
                 <div class="container_buttons_links_section_intro">
-		   <div class="btn">
-                       <a href="https://www.youtube.com/watch?v=wr7QZ364jPY" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">How Big Can Wind Turbines Get?</a>
-                   </div>
                    <div class="btn">
                        <a href="{{ url_for('se_module.se_web_ch5_ex1') }}" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Exercise 1</a>
                    </div>
                    <div class="btn">
-                       <a href="{{ url_for('se_module.se_web_ch5_ex2') }}" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Exercise 2</a>
+                       <a href="{{ url_for('se_module.se_web_ch5_ex1') }}" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Exercise 2</a>
                    </div>
                 </div>
                 </div>
@@ -502,9 +499,60 @@
                     Capacity factor calculator:
                 </p>
                 <div class="container_buttons_links_box_information_css">
-                   <div class="btn">
-                       <a href="https://github.com/mariobp-NHH/ENE425-Code/blob/main/Wind%20Apps/capacity_factor.py" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Capacity Factor Calculator (Github)</a>
-                   </div>
+                    <div class="btn">
+                        <a href="#" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;" data-toggle="modal" data-target="#instructionsModalInstructions1">Capacity Factor Calculator (Instructions, Video, Github)</a>
+                    </div>
+                    <!-- Modal Instructions1 -->
+                    <div class="modal fade" id="instructionsModalInstructions1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+
+                          <div class="modal-header">
+                            <h5 class="modal-title", style="color:black">Capacity Factor Calculator (Instructions)</h5>
+                          </div>
+
+                          <div class="modal-body", style="color:black">
+                            <p>
+                                <ol>
+                                    <li>
+                                        In the folder of the course in YOUR COMPUTER, <strong>create a folder</strong>, and name it (Calculators).
+                                        If you have already created that folder, go to step 3.
+                                    </li>
+                                    </br>
+                                    <li>
+                                        In PyCharm, open that folder. By default, that folder has a file named (main.py).
+                                        Rename that file by using: (refactor>rename). <strong>Rename the file</strong> as (capacity_factor.py).
+                                    </li>
+                                    </br>
+                                    <li>
+                                        In PyCharm, open that folder. If that folder has already other python files that you have created during the course,
+                                        create a new file by using: (file>new>file). <strong>Name the file</strong> as (capacity_factor.py).
+                                    </li>
+                                    </br>
+                                    <li>
+                                        Copy the code from the <a href="https://github.com/mariobp-NHH/ENE425-Code/blob/main/Wind%20Apps/capacity_factor.py">Github account</a>,
+                                        and paste it in the (capacity_factor.py) file.
+                                    </li>
+                                    </br>
+                                    <li>
+                                        By using the terminal in Pycharm, <strong>run your App</strong>: (python capacity_factor.py) (or phyton3 capacity_factor.py). The command python (or python3) depends on the Python version installed on your computer. Try both.
+                                    </li>
+                                    </br>
+                                    <li>
+                                        <strong>The rusult</strong> will appear in your terminal.
+                                    </li>
+                                </ol>
+                            </p>
+                          </div>
+
+                          <div class="modal-footer">
+                            <a href="#" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Capacity Factor (Video)</a>
+                            <button class="btn btn-secondary btn-lg mr-2", style="background-color=#6c757d;" data-dismiss="modal">Close</button>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
 
@@ -1224,8 +1272,59 @@
                         <a href="https://corporatefinanceinstitute.com/resources/knowledge/finance/levelized-cost-of-energy-lcoe/" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">LCOE example</a>
                    </div>
                    <div class="btn">
-                        <a href="https://github.com/mariobp-NHH/ENE425-Code/blob/main/Wind%20Apps/LCOE.py" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">LCOE calculator (Github)</a>
-                   </div>
+                        <a href="#" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;" data-toggle="modal" data-target="#instructionsModalInstructions2">LCOE Calculator (Instructions, Video, Github)</a>
+                    </div>
+                    <!-- Modal Instructions2 -->
+                    <div class="modal fade" id="instructionsModalInstructions2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+
+                          <div class="modal-header">
+                            <h5 class="modal-title", style="color:black">LCOE Calculator (Instructions)</h5>
+                          </div>
+
+                          <div class="modal-body", style="color:black">
+                            <p>
+                                <ol>
+                                    <li>
+                                        In the folder of the course in YOUR COMPUTER, <strong>create a folder</strong>, and name it (Calculators).
+                                        If you have already created that folder, go to step 3.
+                                    </li>
+                                    </br>
+                                    <li>
+                                        In PyCharm, open that folder. By default, that folder has a file named (main.py).
+                                        Rename that file by using: (refactor>rename). <strong>Rename the file</strong> as (LCOE.py).
+                                    </li>
+                                    </br>
+                                    <li>
+                                        In PyCharm, open that folder. If that folder has already other python files that you have created during the course,
+                                        create a new file by using: (file>new>file). <strong>Name the file</strong> as (LCOE.py).
+                                    </li>
+                                    </br>
+                                    <li>
+                                        Copy the code from the <a href="https://github.com/mariobp-NHH/ENE425-Code/blob/main/Wind%20Apps/LCOE.py">Github account</a>,
+                                        and paste it in the (LCOE.py) file.
+                                    </li>
+                                    </br>
+                                    <li>
+                                        By using the terminal in Pycharm, <strong>run your App</strong>: (python LCOE.py) (or phyton3 LCOE.py). The command python (or python3) depends on the Python version installed on your computer. Try both.
+                                    </li>
+                                    </br>
+                                    <li>
+                                        <strong>The rusult</strong> will appear in your terminal.
+                                    </li>
+                                </ol>
+                            </p>
+                          </div>
+
+                          <div class="modal-footer">
+                            <a href="https://youtu.be/9F250cxt2bI" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">LCOE (Video)</a>
+                            <button class="btn btn-secondary btn-lg mr-2", style="background-color=#6c757d;" data-dismiss="modal">Close</button>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
 
@@ -1474,7 +1573,7 @@
                 </br>
                 </br>
                 The onshore wind installed capacity in the 3.5 million km2  of land excluding protected areas, <strong>US</strong>
-                would grow from 94 GW in 2018 to almost cities and water This massive potential is mostly 857 GW by 2050.
+                would grow from 94 GW in 2018 to almost cities and water This massive potential is mostly 857 GW by 2050 (figure \ref{fig:wind_onshore_america}).
                 According to the National concentrated in a central area of the country Renewable Energy Laboratory (NREL),
                 the total land-based wind potential in the country is more than 10 000 GW, equivalent to almost 3.5
                 million  km2  of land excluding protected areas, cities and water This massive potential is mostly
@@ -1629,9 +1728,24 @@
                 <div class="box">
                 <h3 style="justify-content:center;">Case Study</h3>
                 <p>
-                    This information will be uploaded few minutes before the lecture.
+                    Which are the right location(s) for offshore wind in Norway? Which will be the role of those wind farms in Norway and in Europe?
+                    Which investments are required to achieve those projects? Which are the main environmental and social concerns? How those investments will
+                    affect other sectors?
                 </p>
-                
+                <div class="container_buttons_links_section_intro">
+                   <div class="btn">
+                       <a href="https://energyio.org/wind1.pdf" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Havvind 2010</a>
+                   </div>
+                   <div class="btn">
+                       <a href="https://energyio.org/wind2.pdf" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Havvind 2013</a>
+                   </div>
+                   <div class="btn">
+                       <a href="https://energyio.org/wind3.pdf" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Royal Decree 2020</a>
+                   </div>
+                   <div class="btn">
+                       <a href="https://energyio.org/wind4.pdf" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Regulation Offshore Wind</a>
+                   </div>
+                </div>
                 </div>
                 <div class="box">
 
