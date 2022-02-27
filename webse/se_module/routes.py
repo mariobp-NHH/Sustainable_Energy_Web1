@@ -2011,7 +2011,7 @@ def se_web_ch6():
             filter(Moduls.question_num == 3).delete()
         db.session.commit()
         moduls = Moduls(question_str=form_m2_ch6_q3.type.data, author=current_user)
-        if moduls.question_str == 'Non-concentrating collectors are used mainly at home, while concentrating collectors are used mainly in power plants':
+        if moduls.question_str == 'Non-concentrating collectors at home, while concentrating collectors in power plants':
             moduls.question_result = 1
         else:
             moduls.question_result = 0
