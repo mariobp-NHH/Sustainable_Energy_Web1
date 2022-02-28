@@ -1706,7 +1706,7 @@ def se_web_ch5():
         Moduls.query.filter_by(author=current_user). \
             filter(Moduls.title_mo == 'Sustainable Energy'). \
             filter(Moduls.title_ch == 'Ch5. Sustainable Energy. Wind Energy'). \
-            filter(Moduls.question_num == 9).delete()
+            filter(Moduls.question_num == 10).delete()
         db.session.commit()
         moduls = Moduls(question_str=form_m2_ch5_q10.type.data, author=current_user)
         if moduls.question_str == '0.12 USD/KWh':
@@ -1715,7 +1715,7 @@ def se_web_ch5():
             moduls.question_result = 0
         moduls.title_mo = 'Sustainable Energy'
         moduls.title_ch = 'Ch5. Sustainable Energy. Wind Energy'
-        moduls.question_num = 9
+        moduls.question_num = 10
         moduls.question_option = 50
         db.session.add(moduls)
         db.session.commit()
